@@ -1,0 +1,7 @@
+---
+layout: ENUMERATIONS
+category: ENUMERATIONS
+title: WICBitmapDecoderCapabilities
+---
+
+Specifies the capabilities of the decoder.

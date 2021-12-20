@@ -1,0 +1,14 @@
+title: Windows codecs
+email: entoyukari@gmail.com
+description: >- 
+  Windows codecs.
+  japan
+baseurl: ""
+url: ""
+twitter_username: yg_siro
+github_username:  ygsiro
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true

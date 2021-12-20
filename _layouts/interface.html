@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/a11y-light.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <script>
+    hljs.addPlugin({
+    'after:highlight': (result) => {
+      {% for klink in page.code %}
+      key_link(result, "{{ klink.key }}", "{{ klink.key }}");
+      {% endfor %}
+    }});
+  </script>
+</head>
+
+<body>
+  <nav>
+    <ol>
+      {% for item in page.TOC %}
+      <li><a href="#{{ item.name | downcase }}">{{ item.name }}</a></li>
+      {% endfor %}
+      <li><a href="index">index</a></li>
+    </ol>
+  </nav>
+  <main role="main">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </main>
+</body>
+
+</html>
