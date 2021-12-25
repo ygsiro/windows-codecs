@@ -2,6 +2,12 @@
 title: wincodec.h header
 category: index
 layout: index
+TOC:
+  - name: Interface
+  - name: FUNCTIONS
+  - name: CALLBACK FUNCTIONS
+  - name: STRUCTURES
+  - name: ENUMERATIONS
 ---
 
 ## Interface

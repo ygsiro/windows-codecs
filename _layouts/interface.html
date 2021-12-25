@@ -22,10 +22,10 @@
 </head>
 
 <body>
-  <nav>
+  <nav class="navigation">
     <ol>
       {% for item in page.TOC %}
-      <li><a href="#{{ item.name | downcase }}">{{ item.name }}</a></li>
+      <li><a href="#{{ item.name | downcase | replace: ' ', '-' }}">{{ item.name }}</a></li>
       {% endfor %}
       <li><a href="index">index</a></li>
     </ol>
