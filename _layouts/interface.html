@@ -15,7 +15,11 @@
     hljs.addPlugin({
     'after:highlight': (result) => {
       {% for klink in page.code %}
+      {% if klink.href %}
+      key_link(result, "{{ klink.key }}", "{{ klink.href }}");
+      {% else %}
       key_link(result, "{{ klink.key }}", "{{ klink.key }}");
+      {% endif %}
       {% endfor %}
     }});
   </script>
