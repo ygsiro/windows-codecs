@@ -4,17 +4,29 @@ category: Interface
 title: IWICPixelFormatInfo2
 TOC:
   - name: Inheritance
+  - name: GetNumericRepresentation
+  - name: SupportsTransparency
+code:
+  - key: WICPixelFormatNumericRepresentation
 ---
 
-Extends IWICPixelFormatInfo by providing additional information about a pixel format.
+Extends [IWICPixelFormatInfo][wpfi] by providing additional information about a pixel format.
+
+[wpfi]: IWICPixelFormatInfo
 
 ## Inheritance
 
-The IWICPixelFormatInfo2 interface inherits from IWICPixelFormatInfo. IWICPixelFormatInfo2 also has these types of members:
+The **IWICPixelFormatInfo2** interface inherits from [IWICPixelFormatInfo][wpfi].
+**IWICPixelFormatInfo2** also has these types of members:
+
+- [getnumericrepresentation](#getnumericRepresentation)
+- [SupportsTransparency](#supportstransparency)
 
 ## GetNumericRepresentation
 
-Retrieves the WICPixelFormatNumericRepresentation of the pixel format.
+Retrieves the [WICPixelFormatNumericRepresentation][wpfnr] of the pixel format.
+
+[wpfnr]: WICPixelFormatNumericRepresentation
 
 ```cpp
 HRESULT GetNumericRepresentation(
@@ -24,11 +36,13 @@ HRESULT GetNumericRepresentation(
 
 ### GetNumericRepresentation - Parameter
 
-1. *pNumericRepresentation* - The address of a WICPixelFormatNumericRepresentation variable that you've defined. On successful completion, the function sets your variable to the WICPixelFormatNumericRepresentation of the pixel format.
+1. *pNumericRepresentation* - The address of a [WICPixelFormatNumericRepresentation][wpfnr] variable that you've defined.
+   On successful completion, the function sets your variable to the [WICPixelFormatNumericRepresentation][wpfnr] of the pixel format.
 
 ### GetNumericRepresentation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SupportsTransparency
 
@@ -42,11 +56,12 @@ HRESULT SupportsTransparency(
 
 ### SupportsTransparency - Parameter
 
-1. *pfSupportsTransparency* - Returns TRUE if the pixel format supports transparency; otherwise, FALSE.
+1. *pfSupportsTransparency* - Returns **TRUE** if the pixel format supports transparency; otherwise, **FALSE**.
 
 ### SupportsTransparency - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SupportsTransparency - Remarks
 

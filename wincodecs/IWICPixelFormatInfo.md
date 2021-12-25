@@ -4,17 +4,33 @@ category: Interface
 title: IWICPixelFormatInfo
 TOC:
   - name: Inheritance
+  - name: GetBitsPerPixel
+  - name: GetChannelCount
+  - name: GetChannelMask
+  - name: GetColorContext
+  - name: GetFormatGUID
+code:
+  - key: IWICColorContext
 ---
 
 Exposes methods that provide information about a pixel format.
 
 ## Inheritance
 
-The IWICPixelFormatInfo interface inherits from IWICComponentInfo. IWICPixelFormatInfo also has these types of members:
+[wci]: IWICComponentInfo
+
+The **IWICPixelFormatInfo** interface inherits from [IWICComponentInfo][wci].
+**IWICPixelFormatInfo** also has these types of members:
+
+- [GetBitsPerPixel](#getbitsperpixel)
+- [GetChannelCount](#getchannelcount)
+- [GetChannelMask](#getchannelmask)
+- [GetColorContext](#getcolorcontext)
+- [GetFormatGUID](#getformatguid)
 
 ## GetBitsPerPixel
 
-Gets the bits per pixel (BPP) of the pixel format.
+Gets the bits per pixel (**BPP**) of the pixel format.
 
 ```cpp
 HRESULT GetBitsPerPixel(
@@ -28,7 +44,8 @@ HRESULT GetBitsPerPixel(
 
 ### GetBitsPerPixel - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetChannelCount
 
@@ -46,7 +63,8 @@ HRESULT GetChannelCount(
 
 ### GetChannelCount - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetChannelMask
 
@@ -70,15 +88,18 @@ HRESULT GetChannelMask(
 
 ### GetChannelMask - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetChannelMask - Remarks
 
-If 0 and NULL are passed in for cbMaskBuffer and pbMaskBuffer, respectively, the required buffer size will be returned through pcbActual.
+If 0 and **NULL** are passed in for *cbMaskBuffer* and *pbMaskBuffer*, respectively, the required buffer size will be returned through *pcbActual*.
 
 ## GetColorContext
 
-Gets the pixel format's IWICColorContext.
+Gets the pixel format's [IWICColorContext][wcc].
+
+[wcc]: IWICColorContext
 
 ```cpp
 HRESULT GetColorContext(
@@ -92,11 +113,15 @@ HRESULT GetColorContext(
 
 ### GetColorContext - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetColorContext - Remarks
 
-The returned color context is the default color space for the pixel format. However, if an IWICBitmapSource specifies its own color context, the source's context should be preferred over the pixel format's default.
+[wbs]: IWICBitmapSource
+
+The returned color context is the default color space for the pixel format.
+However, if an [IWICBitmapSource][wbs] specifies its own color context, the source's context should be preferred over the pixel format's default.
 
 ## GetFormatGUID
 
@@ -114,4 +139,5 @@ HRESULT GetFormatGUID(
 
 ### GetFormatGUID - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.

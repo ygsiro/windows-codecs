@@ -6,19 +6,21 @@ TOC:
   - name: Inheritance
 ---
 
-Allows planar component image pixels to be written to an encoder. When supported by the encoder, this allows an application to encode planar component image data without first converting to an interleaved pixel format.
+Allows planar component image pixels to be written to an encoder.
+When supported by the encoder, this allows an application to encode planar component image data without first converting to an interleaved pixel format.
 
-You can use
+You can use QueryInterface to obtain this interface from the Windows provided implementation of [IWICBitmapFrameEncode][wbfe] for the JPEG encoder.
 
-QueryInterface to obtain this interface from the Windows provided implementation of IWICBitmapFrameEncode for the JPEG encoder.
+[wbfe]: IWICBitmapFrameEncode
 
 ## Inheritance
 
-The IWICPlanarBitmapFrameEncode interface inherits from the IUnknown interface. IWICPlanarBitmapFrameEncode also has these types of members:
+The **IWICPlanarBitmapFrameEncode** interface inherits from the IUnknown interface. **IWICPlanarBitmapFrameEncode** also has these types of members:
 
 ## Remarks
 
-Encoding YCbCr data using IWICPlanarBitmapFrameEncode is similar but not identical to encoding interleaved data using IWICBitmapFrameEncode. The planar interface only exposes the ability to write planar frame image data, and you should continue to use the frame encode interface to set metadata or a thumbnail and to commit at the end of the operation.
+Encoding YCbCr data using **IWICPlanarBitmapFrameEncode** is similar but not identical to encoding interleaved data using IWICBitmapFrameEncode.
+The planar interface only exposes the ability to write planar frame image data, and you should continue to use the frame encode interface to set metadata or a thumbnail and to commit at the end of the operation.
 
 ## WritePixels
 
@@ -40,17 +42,20 @@ HRESULT WritePixels(
 
 ### WritePixels - Return value
 
-If the planes and source rectangle do not meet the requirements, this method fails with WINCODEC_ERR_IMAGESIZEOUTOFRANGE.
+If the planes and source rectangle do not meet the requirements, this method fails with **WINCODEC_ERR_IMAGESIZEOUTOFRANGE**.
 
-If the IWICBitmapSource format does not meet the encoder requirements, this method fails with WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT.
+If the [IWICBitmapSource][wbs] format does not meet the encoder requirements, this method fails with **WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT**.
+
+[wbs]: IWICBitmapSource
 
 ### WritePixels - Remarks
 
-Successive WritePixels calls are assumed sequentially add scanlines to the output image. IWICBitmapFrameEncode::Initialize, IWICBitmapFrameEncode::SetSize and IWICBitmapFrameEncode::SetPixelFormat must be called before this method or it will fail.
+Successive WritePixels calls are assumed sequentially add scanlines to the output image.
+[IWICBitmapFrameEncode][wbfe]::Initialize, [IWICBitmapFrameEncode][wbfe]::SetSize and [IWICBitmapFrameEncode][wbfe]::SetPixelFormat must be called before this method or it will fail.
 
-The interleaved pixel format set via IWICBitmapFrameEncode::SetPixelFormat and the codec specific encode parameters determine the supported planar formats.
+The interleaved pixel format set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat and the codec specific encode parameters determine the supported planar formats.
 
-WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG IWICBitmapFrameEncode implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and IWICBitmapEncoder::CreateNewFrame for more details.
+WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG [IWICBitmapFrameEncode][wbfe] implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and IWICBitmapEncoder::CreateNewFrame for more details.
 
 Depending upon the configured chroma subsampling, the lineCount parameter has the following restrictions:
 
@@ -63,7 +68,7 @@ Depending upon the configured chroma subsampling, the lineCount parameter has th
 
 The full scanline width must be encoded, and the width of the bitmap sources must match their planar configuration.
 
-Additionally, if a pixel format is set via IWICBitmapFrameEncode::SetPixelFormat, it must be GUID_WICPixelFormat24bppBGR.
+Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat, it must be GUID_WICPixelFormat24bppBGR.
 
 The supported pixel formats of the bitmap sources passed into this method are as follows:
 
@@ -98,11 +103,11 @@ If the IWICBitmapSource format does not meet the encoder requirements, this meth
 
 ### WriteSource - Remarks
 
-Successive WriteSource calls are assumed sequentially add scanlines to the output image. IWICBitmapFrameEncode::Initialize, IWICBitmapFrameEncode::SetSize and IWICBitmapFrameEncode::SetPixelFormat must be called before this method or it will fail.
+Successive WriteSource calls are assumed sequentially add scanlines to the output image. [IWICBitmapFrameEncode][wbfe]::Initialize, [IWICBitmapFrameEncode][wbfe]::SetSize and [IWICBitmapFrameEncode][wbfe]::SetPixelFormat must be called before this method or it will fail.
 
-The interleaved pixel format set via IWICBitmapFrameEncode::SetPixelFormat and the codec specific encode parameters determine the supported planar formats.
+The interleaved pixel format set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat and the codec specific encode parameters determine the supported planar formats.
 
-WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG IWICBitmapFrameEncode implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and IWICBitmapEncoder::CreateNewFrame for more details.
+WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG [IWICBitmapFrameEncode][wbfe] implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and IWICBitmapEncoder::CreateNewFrame for more details.
 
 Depending upon the configured chroma subsampling, the lineCount parameter has the following restrictions:
 
@@ -115,7 +120,7 @@ Depending upon the configured chroma subsampling, the lineCount parameter has th
 
 The full scanline width must be encoded, and the width of the bitmap sources must match their planar configuration.
 
-Additionally, if a pixel format is set via IWICBitmapFrameEncode::SetPixelFormat, it must be GUID_WICPixelFormat24bppBGR.
+Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat, it must be **GUID_WICPixelFormat24bppBGR**.
 
 The supported pixel formats of the bitmap sources passed into this method are as follows:
 
