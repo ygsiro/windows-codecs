@@ -41,10 +41,10 @@ code:
   - key: IWICColorTransform
   - key: IWICComponentInfo
   - key: IWICFastMetadataEncoder
-  - key: IWICFastMetadataEncoder
   - key: IWICFormatConverter
   - key: IWICMetadataQueryReader
   - key: IWICMetadataQueryWriter
+  - key: IWICPalette
   - key: IWICStream
   - key: WICBitmapAlphaChannelOption
   - key: WICBitmapCreateCacheOption
@@ -399,8 +399,11 @@ HRESULT CreateComponentEnumerator(
 
 ### CreateComponentEnumerator - Parameter
 
-1. _componentTypes_ - The types of WICComponentType to enumerate.
-2. _options_ - The WICComponentEnumerateOptions used to enumerate the given component types.
+[wcty]: WICComponentType
+[weo]: WICComponentEnumerateOptions
+
+1. _componentTypes_ - The types of [WICComponentType][wcty] to enumerate.
+2. _options_ - The [WICComponentEnumerateOptions][weo] used to enumerate the given component types.
 3. _ppIEnumUnknown_ - A pointer that receives a pointer to a new component enumerator.
 
 ### CreateComponentEnumerator - Return value
