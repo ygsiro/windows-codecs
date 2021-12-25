@@ -1,5 +1,5 @@
 ---
-layout: FUNCTIONS
+layout: interface
 category: FUNCTIONS
 title: WICMapSchemaToName
 ---

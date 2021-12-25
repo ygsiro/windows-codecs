@@ -1,5 +1,5 @@
 ---
-layout: structures
+layout: interface
 category: STRUCTURES
 title: WICRawToneCurvePoint
 ---
