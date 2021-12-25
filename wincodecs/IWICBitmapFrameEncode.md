@@ -15,6 +15,11 @@ TOC:
   - name: SetThumbnail
   - name: WritePixels
   - name: WriteSource
+code:
+  - key: IWICMetadataQueryWriter
+  - key: IWICColorContext
+  - key: IWICPalette
+  - key: IWICBitmapSource
 ---
 
 Represents an encoder's individual image frames.
@@ -366,7 +371,7 @@ If SetPalette is not called prior to calling **WriteSource**, the target pixel f
 
 When encoding a GIF image, if the global palette is set and the frame level palette is not set directly by the user or by a custom independent software vendor (**ISV**) GIF codec, **WriteSource** will use the global palette to encode the frame even when _pIBitmapSource_ has a frame level palette.
 
-Starting with Windows Vista, repeated WriteSource calls can be made as long as the total accumulated source rect height is the same as set through SetSize.
+Starting with Windows Vista, repeated WriteSource calls can be made as long as the total accumulated source rect height is the same as set through [SetSize](#setsize).
 
-Starting with Windows 8.1, the source rect must be at least the dimensions set through SetSize.
-If the source rect width exceeds the SetSize width, extra pixels on the right side are ignored. If the source rect height exceeds the remaining unfilled height, extra scan lines on the bottom are ignored.
+Starting with Windows 8.1, the source rect must be at least the dimensions set through [SetSize](#setsize).
+If the source rect width exceeds the [SetSize](#setsize) width, extra pixels on the right side are ignored. If the source rect height exceeds the remaining unfilled height, extra scan lines on the bottom are ignored.
