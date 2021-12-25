@@ -4,6 +4,14 @@ category: Interface
 title: IWICBitmapSourceTransform
 TOC:
   - name: Inheritance
+  - name: Remarks
+  - name: CopyPixels
+  - name: DoesSupportTransform
+  - name: GetClosestPixelFormat
+  - name: GetClosestSize
+code:
+  - key: WICPixelFormatGUID
+  - key: WICBitmapTransformOptions
 ---
 
 Exposes methods for offloading certain operations to the underlying [IWICBitmapSource][wbs] implementation.
@@ -16,7 +24,13 @@ The **IWICBitmapSourceTransform** interface inherits from the IUnknown interface
 
 ## Remarks
 
-The **IWICBitmapSourceTransform** interface is implemented by codecs which can natively scale, flip, rotate, or format convert pixels during decoding. As the transformation is combined with the decoding process, native transformation will generally offer performance advantages over non-native transformations. The inbox IWICBitmapScaler, IWICBitmapFlipRotator, and IWICFormatConverter implementations all make use of the **IWICBitmapSourceTransform** interface when they are placed immediately after a supported IWICBitmapFrameDecode, so in the typical case an application will automatically receive this performance increase and does not need to directly use this interface. However, when chaining multiple transformations, or when implementing a custom transformation, there may be a performance advantage to using the **IWICBitmapSourceTransform** interface directly.
+[wfc]: IWICFormatConverter
+[wbsc]: IWICBitmapScaler
+[wbfr]: IWICBitmapFlipRotator
+
+The **IWICBitmapSourceTransform** interface is implemented by codecs which can natively scale, flip, rotate, or format convert pixels during decoding. As the transformation is combined with the decoding process, native transformation will generally offer performance advantages over non-native transformations.
+The inbox [IWICBitmapScaler][wbsc], [IWICBitmapFlipRotator][wbfr], and [IWICFormatConverter][wfc] implementations all make use of the **IWICBitmapSourceTransform** interface when they are placed immediately after a supported [IWICBitmapFrameDecode][wbfd], so in the typical case an application will automatically receive this performance increase and does not need to directly use this interface.
+However, when chaining multiple transformations, or when implementing a custom transformation, there may be a performance advantage to using the **IWICBitmapSourceTransform** interface directly.
 
 ## CopyPixels
 

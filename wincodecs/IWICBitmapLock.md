@@ -29,7 +29,8 @@ The **IWICBitmapLock** interface inherits from the IUnknown interface.
 
 ## Remarks
 
-The bitmap lock is simply an abstraction for a rectangular memory window into the bitmap. For the simplest case, a system memory bitmap, this is simply a pointer to the top left corner of the rectangle and a stride value.
+The bitmap lock is simply an abstraction for a rectangular memory window into the bitmap.
+For the simplest case, a system memory bitmap, this is simply a pointer to the top left corner of the rectangle and a stride value.
 
 To release the exclusive lock set by Lock method and the associated **IWICBitmapLock** object, call IUnknown::Release on the **IWICBitmapLock** object.
 

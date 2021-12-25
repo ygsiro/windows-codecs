@@ -4,13 +4,87 @@ category: Interface
 title: IWICDevelopRaw
 TOC:
   - name: Inheritance
+  - name: GetContrast
+  - name: GetCurrentParameterSet
+  - name: GetExposureCompensation
+  - name: GetGamma
+  - name: GetKelvinRangeInfo
+  - name: GetNamedWhitePoint
+  - name: GetNoiseReduction
+  - name: GetRenderMode
+  - name: GetRotation
+  - name: GetSaturation
+  - name: GetSharpness
+  - name: GetTint
+  - name: GetToneCurve
+  - name: GetWhitePointKelvin
+  - name: GetWhitePointRGB
+  - name: LoadParameterSet
+  - name: QueryRawCapabilitiesInfo
+  - name: SetContrast
+  - name: SetDestinationColorContext
+  - name: SetExposureCompensation
+  - name: SetGamma
+  - name: SetNamedWhitePoint
+  - name: SetNoiseReduction
+  - name: SetNotificationCallback
+  - name: SetRenderMode
+  - name: SetRotation
+  - name: SetSaturation
+  - name: SetSharpness
+  - name: SetToneCurve
+  - name: SetWhitePointKelvin
+  - name: SetWhitePointRGB
+code:
+  - key: WICNamedWhitePoint
+  - key: WICRawRenderMode
+  - key: WICRawToneCurve
+  - key: IWICColorContext
+  - key: WICRawParameterSet
+  - key: WICRawCapabilitiesInfo
+  - key: IWICDevelopRawNotificationCallback
 ---
 
 Exposes methods that provide access to the capabilities of a raw codec format.
 
 ## Inheritance
 
-The IWICDevelopRaw interface inherits from IWICBitmapFrameDecode. IWICDevelopRaw also has these types of members:
+[wbfd]: IWICBitmapFrameDecode
+
+The **IWICDevelopRaw** interface inherits from [IWICBitmapFrameDecode][wbfd].
+**IWICDevelopRaw** also has these types of members:
+
+- [getcontrast](#getcontrast)
+- [GetCurrentParameterSet](#getcurrentparameterset)
+- [GetExposureCompensation](#GetExposureCompensation)
+- [GetGamma](#getgamma)
+- [GetKelvinRangeInfo](#getkelvinrangeinfo)
+- [GetNamedWhitePoint](#getnamedwhitepoint)
+- [GetNoiseReduction](#getnoisereduction)
+- [GetRenderMode](#getrendermode)
+- [GetRotation](#getrotation)
+- [GetSaturation](#getsaturation)
+- [GetSharpness](#getsharpness)
+- [GetTint](#gettint)
+- [GetToneCurve](#gettonecurve)
+- [GetWhitePointKelvin](#getwhitepointkelvin)
+- [GetWhitePointRGB](#getwhitepointrgb)
+- [LoadParameterSet](#loadparameterset)
+- [QueryRawCapabilitiesInfo](#queryrawcapabilitiesinfo)
+- [SetContrast](#setcontrast)
+- [SetDestinationColorContext](#setdestinationcolorcontext)
+- [SetExposureCompensation](#setexposurecompensation)
+- [SetGamma](#setgamma)
+- [SetNamedWhitePoint](#setnamedwhitepoint)
+- [SetNoiseReduction](#setnoisereduction)
+- [SetNotificationCallback](#setnotificationcallback)
+- [SetRenderMode](#setrendermode)
+- [SetRotation](#setrotation)
+- [SetSaturation](#setsaturation)
+- [SetSharpness](#setsharpness)
+- [SetToneCurve](#settonecurve)
+- [SetWhitePointKelvin](#setwhitepointkelvin)
+- [SetWhitePointRGB](#setwhitepointrgb)
 
 ## GetContrast
 
@@ -24,11 +98,15 @@ HRESULT GetContrast(
 
 ### GetContrast - Parameter
 
-1. *pContrast* - A pointer that receives the contrast value of the raw image. The default value is the "as-shot" setting. The value range for contrast is 0.0 through 1.0. The 0.0 lower limit represents no contrast applied to the image, while the 1.0 upper limit represents the highest amount of contrast that can be applied.
+1. *pContrast* - A pointer that receives the contrast value of the raw image.
+   The default value is the "as-shot" setting.
+   The value range for contrast is 0.0 through 1.0.
+   The 0.0 lower limit represents no contrast applied to the image, while the 1.0 upper limit represents the highest amount of contrast that can be applied.
 
 ### GetContrast - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetCurrentParameterSet
 
@@ -46,7 +124,8 @@ HRESULT GetCurrentParameterSet(
 
 ### GetCurrentParameterSet - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetExposureCompensation
 
@@ -60,11 +139,13 @@ HRESULT GetExposureCompensation(
 
 ### GetExposureCompensation - Parameter
 
-1. *pEV* - A pointer that receives the exposure compensation stop value. The default is the "as-shot" setting.
+1. *pEV* - A pointer that receives the exposure compensation stop value.
+   The default is the "as-shot" setting.
 
 ### GetExposureCompensation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetGamma
 
@@ -82,7 +163,8 @@ HRESULT GetGamma(
 
 ### GetGamma - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetKelvinRangeInfo
 
@@ -104,7 +186,8 @@ HRESULT GetKelvinRangeInfo(
 
 ### GetKelvinRangeInfo - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetNamedWhitePoint
 
@@ -122,7 +205,8 @@ HRESULT GetNamedWhitePoint(
 
 ### GetNamedWhitePoint - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetNamedWhitePoint - Remarks
 
@@ -130,7 +214,9 @@ If the named white points are not supported by the raw image or the raw file con
 
 If the named white points are not supported by the raw image, a best effort should be made to adjust the image to the named white point even when it isn't a pre-defined white point of the raw file.
 
-If the raw file contains named white points not supported by this API, the codec implementer should support the named white points in WICNamedWhitePoint.
+[wnwp]: WICNamedWhitePoint
+
+If the raw file contains named white points not supported by this API, the codec implementer should support the named white points in [WICNamedWhitePoint][wnwp].
 
 ## GetNoiseReduction
 
@@ -144,15 +230,21 @@ HRESULT GetNoiseReduction(
 
 ### GetNoiseReduction - Parameter
 
-1. *pNoiseReduction* - A pointer that receives the noise reduction value of the raw image. The default value is the "as-shot" setting if it exists or 0.0. The value range for noise reduction is 0.0 through 1.0. The 0.0 lower limit represents no noise reduction applied to the image, while the 1.0 upper limit represents full highest noise reduction amount that can be applied.
+1. *pNoiseReduction* - A pointer that receives the noise reduction value of the raw image.
+   The default value is the "as-shot" setting if it exists or 0.0.
+   The value range for noise reduction is 0.0 through 1.0.
+   The 0.0 lower limit represents no noise reduction applied to the image, while the 1.0 upper limit represents full highest noise reduction amount that can be applied.
 
 ### GetNoiseReduction - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetRenderMode
 
-Gets the current WICRawRenderMode.
+[wrrm]: WICRawRenderMode
+
+Gets the current [WICRawRenderMode][wrrm].
 
 ```cpp
 HRESULT GetRenderMode(
@@ -162,11 +254,12 @@ HRESULT GetRenderMode(
 
 ### GetRenderMode - Parameter
 
-1. *pRenderMode* - A pointer that receives the current WICRawRenderMode.
+1. *pRenderMode* - A pointer that receives the current [WICRawRenderMode][wrrm].
 
 ### GetRenderMode - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetRotation
 
@@ -184,7 +277,8 @@ HRESULT GetRotation(
 
 ### GetRotation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetSaturation
 
@@ -198,11 +292,15 @@ HRESULT GetSaturation(
 
 ### GetSaturation - Parameter
 
-1. *pSaturation* - A pointer that receives the saturation value of the raw image. The default value is the "as-shot" setting. The value range for saturation is 0.0 through 1.0. A value of 0.0 represents an image with a fully de-saturated image, while a value of 1.0 represents the highest amount of saturation that can be applied.
+1. *pSaturation* - A pointer that receives the saturation value of the raw image.
+   The default value is the "as-shot" setting.
+   The value range for saturation is 0.0 through 1.0.
+   A value of 0.0 represents an image with a fully de-saturated image, while a value of 1.0 represents the highest amount of saturation that can be applied.
 
 ### GetSaturation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetSharpness
 
@@ -216,11 +314,14 @@ HRESULT GetSharpness(
 
 ### GetSharpness - Parameter
 
-1. A pointer that receives the sharpness value of the raw image. The default value is the "as-shot" setting. The value range for sharpness is 0.0 through 1.0. The 0.0 lower limit represents no sharpening applied to the image, while the 1.0 upper limit represents the highest amount of sharpness that can be applied.
+1. A pointer that receives the sharpness value of the raw image.
+   The default value is the "as-shot" setting. The value range for sharpness is 0.0 through 1.0.
+   The 0.0 lower limit represents no sharpening applied to the image, while the 1.0 upper limit represents the highest amount of sharpness that can be applied.
 
 ### GetSharpness - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetTint
 
@@ -234,11 +335,15 @@ HRESULT GetTint(
 
 ### GetTint - Parameter
 
-1. *pTint* - A pointer that receives the tint value of the raw image. The default value is the "as-shot" setting if it exists or 0.0. The value range for sharpness is -1.0 through +1.0. The -1.0 lower limit represents a full green bias to the image, while the 1.0 upper limit represents a full magenta bias.
+1. *pTint* - A pointer that receives the tint value of the raw image.
+   The default value is the "as-shot" setting if it exists or 0.0.
+   The value range for sharpness is -1.0 through +1.0.
+   The -1.0 lower limit represents a full green bias to the image, while the 1.0 upper limit represents a full magenta bias.
 
 ### GetTint - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetToneCurve
 
@@ -260,7 +365,8 @@ HRESULT GetToneCurve(
 
 ### GetToneCurve - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetWhitePointKelvin
 
@@ -274,11 +380,13 @@ HRESULT GetWhitePointKelvin(
 
 ### GetWhitePointKelvin - Parameter
 
-1. *pWhitePointKelvin* - A pointer that receives the white point Kelvin temperature of the raw image. The default is the "as-shot" setting value.
+1. *pWhitePointKelvin* - A pointer that receives the white point Kelvin temperature of the raw image.
+   The default is the "as-shot" setting value.
 
 ### GetWhitePointKelvin - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetWhitePointRGB
 
@@ -300,11 +408,14 @@ HRESULT GetWhitePointRGB(
 
 ### GetWhitePointRGB - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## LoadParameterSet
 
-Sets the desired WICRawParameterSet option.
+[wrps]: WICRawParameterSet
+
+Sets the desired [WICRawParameterSet][wrps] option.
 
 ```cpp
 HRESULT LoadParameterSet(
@@ -314,11 +425,12 @@ HRESULT LoadParameterSet(
 
 ### LoadParameterSet - Parameter
 
-1. *ParameterSet* - The desired WICRawParameterSet option.
+1. *ParameterSet* - The desired [WICRawParameterSet][wrps] option.
 
 ### LoadParameterSet - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## QueryRawCapabilitiesInfo
 
@@ -332,11 +444,14 @@ HRESULT QueryRawCapabilitiesInfo(
 
 ### QueryRawCapabilitiesInfo - Parameter
 
-1. *pInfo* - A pointer that receives WICRawCapabilitiesInfo that provides the capabilities supported by the raw image.
+[wrci]: WICRawCapabilitiesInfo
+
+1. *pInfo* - A pointer that receives [WICRawCapabilitiesInfo][wrci] that provides the capabilities supported by the raw image.
 
 ### QueryRawCapabilitiesInfo - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### QueryRawCapabilitiesInfo - Remarks
 
@@ -354,11 +469,15 @@ HRESULT SetContrast(
 
 ### SetContrast - Parameter
 
-1. *Contrast* - The contrast value of the raw image. The default value is the "as-shot" setting. The value range for contrast is 0.0 through 1.0. The 0.0 lower limit represents no contrast applied to the image, while the 1.0 upper limit represents the highest amount of contrast that can be applied.
+1. *Contrast* - The contrast value of the raw image.
+   The default value is the "as-shot" setting.
+   The value range for contrast is 0.0 through 1.0.
+   The 0.0 lower limit represents no contrast applied to the image, while the 1.0 upper limit represents the highest amount of contrast that can be applied.
 
 ### SetContrast - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetContrast - Remarks
 
@@ -380,7 +499,8 @@ HRESULT SetDestinationColorContext(
 
 ### SetDestinationColorContext - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetExposureCompensation
 
@@ -398,7 +518,8 @@ HRESULT SetExposureCompensation(
 
 ### SetExposureCompensation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetExposureCompensation - Remarks
 
@@ -420,7 +541,8 @@ HRESULT SetGamma(
 
 ### SetGamma - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetNamedWhitePoint
 
@@ -438,7 +560,8 @@ HRESULT SetNamedWhitePoint(
 
 ### SetNamedWhitePoint - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetNamedWhitePoint - Remarks
 
@@ -448,7 +571,9 @@ If the named white points are not supported by the raw image, a best effort shou
 
 If the raw file contains named white points not supported by this API, the codec implementer should support the named white points in the API.
 
-Due to other white point setting methods (e.g. SetWhitePointKelvin), care must be taken by codec implementers to ensure proper interoperability. For instance, if the caller sets via a named white point then the codec implementer may wish to disable reading back the corresponding Kelvin temperature. In specific cases where the codec implementer wishes to deny a given action because of previous calls, WINCODEC_ERR_WRONGSTATE should be returned.
+Due to other white point setting methods (e.g. [SetWhitePointKelvin](#setwhitepointkelvin)), care must be taken by codec implementers to ensure proper interoperability.
+For instance, if the caller sets via a named white point then the codec implementer may wish to disable reading back the corresponding Kelvin temperature.
+In specific cases where the codec implementer wishes to deny a given action because of previous calls, **WINCODEC_ERR_WRONGSTATE** should be returned.
 
 ## SetNoiseReduction
 
@@ -462,11 +587,15 @@ HRESULT SetNoiseReduction(
 
 ### SetNoiseReduction - Parameter
 
-1. *NoiseReduction* - The noise reduction value of the raw image. The default value is the "as-shot" setting if it exists or 0.0. The value range for noise reduction is 0.0 through 1.0. The 0.0 lower limit represents no noise reduction applied to the image, while the 1.0 upper limit represents highest noise reduction amount that can be applied.
+1. *NoiseReduction* - The noise reduction value of the raw image.
+   The default value is the "as-shot" setting if it exists or 0.0.
+   The value range for noise reduction is 0.0 through 1.0.
+   The 0.0 lower limit represents no noise reduction applied to the image, while the 1.0 upper limit represents highest noise reduction amount that can be applied.
 
 ### SetNoiseReduction - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetNoiseReduction - Remarks
 
@@ -488,11 +617,12 @@ HRESULT SetNotificationCallback(
 
 ### SetNotificationCallback - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetRenderMode
 
-Sets the current WICRawRenderMode.
+Sets the current [WICRawRenderMode][wrrm].
 
 ```cpp
 HRESULT SetRenderMode(
@@ -506,7 +636,8 @@ HRESULT SetRenderMode(
 
 ### SetRenderMode - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetRotation
 
@@ -524,7 +655,8 @@ HRESULT SetRotation(
 
 ### SetRotation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetSaturation
 
@@ -538,11 +670,14 @@ HRESULT SetSaturation(
 
 ### SetSaturation - Parameter
 
-1. *Saturation* - The saturation value of the raw image. The value range for saturation is 0.0 through 1.0. A value of 0.0 represents an image with a fully de-saturated image, while a value of 1.0 represents the highest amount of saturation that can be applied.
+1. *Saturation* - The saturation value of the raw image.
+   The value range for saturation is 0.0 through 1.0.
+   A value of 0.0 represents an image with a fully de-saturated image, while a value of 1.0 represents the highest amount of saturation that can be applied.
 
 ### SetSaturation - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetSaturation - Remarks
 
@@ -560,11 +695,14 @@ HRESULT SetSharpness(
 
 ### SetSharpness - Parameter
 
-1. *Sharpness* - The sharpness value of the raw image. The default value is the "as-shot" setting. The value range for sharpness is 0.0 through 1.0. The 0.0 lower limit represents no sharpening applied to the image, while the 1.0 upper limit represents the highest amount of sharpness that can be applied.
+1. *Sharpness* - The sharpness value of the raw image. The default value is the "as-shot" setting.
+   The value range for sharpness is 0.0 through 1.0.
+   The 0.0 lower limit represents no sharpening applied to the image, while the 1.0 upper limit represents the highest amount of sharpness that can be applied.
 
 ### SetSharpness - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetSharpness - Remarks
 
@@ -582,11 +720,14 @@ HRESULT SetTint(
 
 ### SetTint - Parameter
 
-1. *Tint* - The tint value of the raw image. The default value is the "as-shot" setting if it exists or 0.0. The value range for sharpness is -1.0 through +1.0. The -1.0 lower limit represents a full green bias to the image, while the 1.0 upper limit represents a full magenta bias.
+1. *Tint* - The tint value of the raw image.
+   The default value is the "as-shot" setting if it exists or 0.0.
+   The value range for sharpness is -1.0 through +1.0. The -1.0 lower limit represents a full green bias to the image, while the 1.0 upper limit represents a full magenta bias.
 
 ### SetTint - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetTint - Remarks
 
@@ -605,12 +746,13 @@ HRESULT SetToneCurve(
 
 ### SetToneCurve - Parameter
 
-1. *cbToneCurveSize* - The size of the pToneCurve structure.
+1. *cbToneCurveSize* - The size of the *pToneCurve* structure.
 2. *pToneCurve* - The desired tone curve.
 
 ### SetToneCurve - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## SetWhitePointKelvin
 
@@ -628,15 +770,19 @@ HRESULT SetWhitePointKelvin(
 
 ### SetWhitePointKelvin - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetWhitePointKelvin - Remarks
 
-Codec implementers should faithfully adjust the color temperature within the range supported natively by the raw image. For values outside the native support range, the codec implementer should provide a best effort representation of the image at that color temperature.
+Codec implementers should faithfully adjust the color temperature within the range supported natively by the raw image.
+For values outside the native support range, the codec implementer should provide a best effort representation of the image at that color temperature.
 
-Codec implementers should return WINCODEC_ERR_VALUEOUTOFRANGE if the value is out of defined acceptable range.
+Codec implementers should return **WINCODEC_ERR_VALUEOUTOFRANGE** if the value is out of defined acceptable range.
 
-Codec implementers must ensure proper interoperability with other white point setting methods such as SetWhitePointRGB. For example, if the caller sets the white point via SetNamedWhitePoint then the codec implementer may want to disable reading back the corresponding Kelvin temperature. In specific cases where the codec implementer wants to deny a given action because of previous calls, WINCODEC_ERR_WRONGSTATE should be returned.
+Codec implementers must ensure proper interoperability with other white point setting methods such as [SetWhitePointRGB](#setwhitepointrgb).
+For example, if the caller sets the white point via [SetNamedWhitePoint](#setnamedwhitepoint) then the codec implementer may want to disable reading back the corresponding Kelvin temperature.
+In specific cases where the codec implementer wants to deny a given action because of previous calls, **WINCODEC_ERR_WRONGSTATE** should be returned.
 
 ## SetWhitePointRGB
 
@@ -658,8 +804,11 @@ HRESULT SetWhitePointRGB(
 
 ### SetWhitePointRGB - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### SetWhitePointRGB - Remarks
 
-Due to other white point setting methods (e.g. SetWhitePointKelvin), care must be taken by codec implementers to ensure proper interoperability. For instance, if the caller sets via a named white point then the codec implementer may wish to disable reading back the corresponding Kelvin temperature. In specific cases where the codec implementer wishes to deny a given action because of previous calls, WINCODEC_ERR_WRONGSTATE should be returned.
+Due to other white point setting methods (e.g. [SetWhitePointKelvin](#setwhitepointkelvin)), care must be taken by codec implementers to ensure proper interoperability.
+For instance, if the caller sets via a named white point then the codec implementer may wish to disable reading back the corresponding Kelvin temperature.
+In specific cases where the codec implementer wishes to deny a given action because of previous calls, **WINCODEC_ERR_WRONGSTATE** should be returned.

@@ -21,7 +21,8 @@ Represents an encoder's individual image frames.
 
 ## Inheritance
 
-The IWICBitmapFrameEncode interface inherits from the IUnknown interface. **IWICBitmapFrameEncode** also has these types of members:
+The **IWICBitmapFrameEncode** interface inherits from the IUnknown interface.
+**IWICBitmapFrameEncode** also has these types of members:
 
 - [Commit](#commit)
 - [GetMetadataQueryWriter](#getmetadataquerywriter)

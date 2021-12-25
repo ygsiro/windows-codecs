@@ -6,6 +6,9 @@ TOC:
   - name: Inheritance
   - name: Remarks
   - name: Initialize
+code:
+  - key: IWICBitmapSource
+  - key: WICBitmapInterpolationMode
 ---
 
 Represents a resized version of the input bitmap using a resampling or filtering algorithm.

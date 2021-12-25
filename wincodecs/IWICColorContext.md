@@ -4,13 +4,30 @@ category: Interface
 title: IWICColorContext
 TOC:
   - name: Inheritance
+  - name: Remarks
+  - name: GetExifColorSpace
+  - name: GetProfileBytes
+  - name: GetType
+  - name: InitializeFromExifColorSpace
+  - name: InitializeFromFilename
+  - name: InitializeFromMemory
+code:
+  - key: WICColorContextType
 ---
 
 Exposes methods for color management.
 
 ## Inheritance
 
-The IWICColorContext interface inherits from the IUnknown interface. IWICColorContext also has these types of members:
+The **IWICColorContext** interface inherits from the IUnknown interface.
+**IWICColorContext** also has these types of members:
+
+- [GetExifColorSpace](#getexifcolorspace)
+- [GetProfileBytes](#getprofilebytes)
+- [GetType](#gettype)
+- [InitializeFromExifColorSpace](#initializefromexifcolorspace)
+- [InitializeFromFilename](#initializefromfilename)
+- [InitializeFromMemory](#initializefrommemory)
 
 ## Remarks
 
@@ -40,11 +57,14 @@ HRESULT GetExifColorSpace(
 
 ### GetExifColorSpace - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetExifColorSpace - Remarks
 
-This method should only be used when IWICColorContext::GetType indicates WICColorContextExifColorSpace.
+This method should only be used when **IWICColorContext**::[GetType](#gettype) indicates [WICColorContextExifColorSpace][wccecs].
+
+[wccecs]: WICColorContextType
 
 ## GetProfileBytes
 
@@ -66,13 +86,14 @@ HRESULT GetProfileBytes(
 
 ### GetProfileBytes - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetProfileBytes - Remarks
 
-Only use this method if the context type is WICColorContextProfile.
+Only use this method if the context type is [WICColorContextProfile][wccecs].
 
-Calling this method with pbBuffer set to NULL will cause it to return the required buffer size in pcbActual.
+Calling this method with pbBuffer set to **NULL** will cause it to return the required buffer size in *pcbActual*.
 
 ## GetType
 
@@ -86,15 +107,16 @@ HRESULT GetType(
 
 ### GetType - Parameter
 
-1. _pType_ - A pointer that receives the WICColorContextType of the color context.
+1. _pType_ - A pointer that receives the [WICColorContextType][wccecs] of the color context.
 
 ### GetType - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## InitializeFromExifColorSpace
 
-Initializes the color context using an Exchangeable Image File (EXIF) color space.
+Initializes the color context using an Exchangeable Image File (**EXIF**) color space.
 
 ```cpp
 HRESULT InitializeFromExifColorSpace(
@@ -113,7 +135,8 @@ HRESULT InitializeFromExifColorSpace(
 
 ### InitializeFromExifColorSpace - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializeFromExifColorSpace - Remarks
 
@@ -135,7 +158,8 @@ HRESULT InitializeFromFilename(
 
 ### InitializeFromFilename - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializeFromFilename - Remarks
 
@@ -154,12 +178,13 @@ HRESULT InitializeFromMemory(
 
 ### InitializeFromMemory - Parameter
 
-1. *pbBuffer* - The buffer used to initialize the IWICColorContext.
-2. *cbBufferSize* - The size of the pbBuffer buffer.
+1. *pbBuffer* - The buffer used to initialize the **IWICColorContext**.
+2. *cbBufferSize* - The size of the *pbBuffer* buffer.
 
 ### InitializeFromMemory - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializeFromMemory - Remarks
 
