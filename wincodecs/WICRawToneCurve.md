@@ -1,5 +1,5 @@
 ---
-layout: STRUCTURES
+layout: structures
 category: STRUCTURES
 title: WICRawToneCurve
 ---

@@ -1,5 +1,5 @@
 ---
-layout: ENUMERATIONS
+layout: enumerations
 category: ENUMERATIONS
 title: WICRawCapabilities
 ---
