@@ -1,5 +1,5 @@
 ---
-layout: enumerations
+layout: interface
 category: ENUMERATIONS
 title: WICGifLogicalScreenDescriptorProperties
 ---

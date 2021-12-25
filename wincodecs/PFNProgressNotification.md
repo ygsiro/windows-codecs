@@ -28,7 +28,7 @@ HRESULT Pfnprogressnotification(
 4. *dblProgress* - The progress value.
    The range is 0.0 to 1.0.
 
-## Return value
+## ReturnValue
 
 If this callback function succeeds, it returns **S_OK**.
 Otherwise, it returns an **HRESULT** error code.
