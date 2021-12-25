@@ -1,5 +1,5 @@
 ---
-layout: CALLBACK FUNCTIONS
+layout: interface
 category: CALLBACK FUNCTIONS
 title: WICMapShortNameToGuid
 ---
