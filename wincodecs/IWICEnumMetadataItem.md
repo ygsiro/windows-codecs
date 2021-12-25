@@ -57,7 +57,8 @@ HRESULT Next(
 ### Next - Parameter
 
 1. *celt* - The number of items to be retrieved.
-2. *rgeltSchema* - An array of enumerated items. This parameter is optional.
+2. *rgeltSchema* - An array of enumerated items.
+   This parameter is optional.
 3. *rgeltId* - An array of enumerated items.
 4. *rgeltValue* - An array of enumerated items.
    This parameter is optional.

@@ -4,13 +4,89 @@ category: Interface
 title: IWICImagingFactory
 TOC:
   - name: Inheritance
+  - name: CreateBitmap
+  - name: CreateBitmapClipper
+  - name: CreateBitmapFlipRotator
+  - name: CreateBitmapFromHBITMAP
+  - name: CreateBitmapFromHICON
+  - name: CreateBitmapFromMemory
+  - name: CreateBitmapFromSource
+  - name: CreateBitmapFromSourceRect
+  - name: CreateBitmapScaler
+  - name: CreateColorContext
+  - name: CreateColorTransformer
+  - name: CreateComponentEnumerator
+  - name: CreateComponentInfo
+  - name: CreateDecoder
+  - name: CreateDecoderFromFileHandle
+  - name: CreateDecoderFromFilename
+  - name: CreateDecoderFromStream
+  - name: CreateEncoder
+  - name: CreateFastMetadataEncoderFromDecoder
+  - name: CreateFastMetadataEncoderFromFrameDecode
+  - name: CreateFormatConverter
+  - name: CreatePalette
+  - name: CreateQueryWriter
+  - name: CreateQueryWriterFromReader
+  - name: CreateStream
+code:
+  - key: IWICBitmap
+  - key: IWICBitmapClipper
+  - key: IWICBitmapDecoder
+  - key: IWICBitmapFlipRotator
+  - key: IWICBitmapFrameDecode
+  - key: IWICBitmapScaler
+  - key: IWICBitmapSource
+  - key: IWICColorContext
+  - key: IWICColorTransform
+  - key: IWICComponentInfo
+  - key: IWICFastMetadataEncoder
+  - key: IWICFastMetadataEncoder
+  - key: IWICFormatConverter
+  - key: IWICMetadataQueryReader
+  - key: IWICMetadataQueryWriter
+  - key: IWICStream
+  - key: WICBitmapAlphaChannelOption
+  - key: WICBitmapCreateCacheOption
+  - key: WICDecodeOptions
 ---
 
 Exposes methods used to create components for the Windows Imaging Component (**WIC**) such as decoders, encoders and pixel format converters.
 
+## Inheritance
+
+The **IWICImagingFactory** interface inherits from the IUnknown interface.
+**IWICImagingFactory** also has these types of members:
+
+- [CreateBitmap](#createbitmap)
+- [CreateBitmapClipper](#createbitmapclipper)
+- [CreateBitmapFlipRotator](#createbitmapfliprotator)
+- [CreateBitmapFromHBITMAP](#createbitmapfromhbitmap)
+- [CreateBitmapFromHICON](#createbitmapfromhicon)
+- [CreateBitmapFromMemory](#createbitmapfrommemory)
+- [CreateBitmapFromSource](#createbitmapfromsource)
+- [CreateBitmapFromSourceRect](#createbitmapfromsourcerect)
+- [CreateBitmapScaler](#createbitmapscaler)
+- [CreateColorContext](#createcolorcontext)
+- [CreateColorTransformer](#createcolortransformer)
+- [CreateComponentEnumerator](#createcomponentenumerator)
+- [CreateComponentInfo](#createcomponentinfo)
+- [CreateDecoder](#createdecoder)
+- [CreateDecoderFromFileHandle](#createdecoderfromfilehandle)
+- [CreateDecoderFromFilename](#createdecoderfromfilename)
+- [CreateDecoderFromStream](#createdecoderfromstream)
+- [CreateEncoder](#createencoder)
+- [CreateFastMetadataEncoderFromDecoder](#createfastmetadataencoderfromdecoder)
+- [CreateFastMetadataEncoderFromFrameDecode](#createfastmetadataencoderfromframedecode)
+- [CreateFormatConverter](#createformatconverter)
+- [CreatePalette](#createpalette)
+- [CreateQueryWriter](#createquerywriter)
+- [CreateQueryWriterFromReader](#createquerywriterfromreader)
+- [CreateStream](#createstream)
+
 ## CreateBitmap
 
-Creates an IWICBitmap object.
+Creates an [IWICBitmap][wb] object.
 
 ```cpp
 HRESULT CreateBitmap(
@@ -24,26 +100,31 @@ HRESULT CreateBitmap(
 
 ### CreateBitmap - Parameter
 
+[wbcco]: WICBitmapCreateCacheOption
+
 1. _uiWidth_ - The width of the new bitmap .
 2. _uiHeight_ - The height of the new bitmap.
 3. _pixelFormat_ - The pixel format of the new bitmap.
-4. _option_ - The cache creation options of the new bitmap. This can be one of the values in the WICBitmapCreateCacheOption enumeration.
+4. _option_ - The cache creation options of the new bitmap. This can be one of the values in the [WICBitmapCreateCacheOption][wbcco] enumeration.
 
    | Value                  | Meaning                                                               |
    | :--------------------- | :-------------------------------------------------------------------- |
-   | WICBitmapCacheOnDemand | Allocates system memory for the bitmap at initialization.             |
-   | WICBitmapCacheOnLoad   | Allocates system memory for the bitmap when the bitmap is first used. |
-   | WICBitmapNoCache       | This option is not valid for this method and should not be used.      |
+   | **WICBitmapCacheOnDemand** | Allocates system memory for the bitmap at initialization.             |
+   | **WICBitmapCacheOnLoad**   | Allocates system memory for the bitmap when the bitmap is first used. |
+   | **WICBitmapNoCache**       | This option is not valid for this method and should not be used.      |
 
 5. _ppIBitmap_ - A pointer that receives a pointer to the new bitmap.
 
 ### CreateBitmap - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## CreateBitmapClipper
 
-Creates a new instance of an IWICBitmapClipper object.
+[wbc]: IWICBitmapClipper
+
+Creates a new instance of an [IWICBitmapClipper][wbc] object.
 
 ```cpp
 HRESULT CreateBitmapClipper(
@@ -53,7 +134,7 @@ HRESULT CreateBitmapClipper(
 
 ### CreateBitmapClipper - Parameter
 
-1. _ppIBitmapClipper_ - A pointer that receives a pointer to a new IWICBitmapClipper.
+1. _ppIBitmapClipper_ - A pointer that receives a pointer to a new [IWICBitmapClipper][wbc].
 
 ### CreateBitmapClipper - Return value
 
@@ -62,7 +143,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateBitmapFlipRotator
 
-Creates a new instance of an IWICBitmapFlipRotator object.
+Creates a new instance of an [IWICBitmapFlipRotator][wbfr] object.
 
 ```cpp
 HRESULT CreateBitmapFlipRotator(
@@ -72,7 +153,9 @@ HRESULT CreateBitmapFlipRotator(
 
 ### CreateBitmapFlipRotator - Parameter
 
-1. _ppIBitmapFlipRotator_ - A pointer that receives a pointer to a new IWICBitmapFlipRotator.
+[wbfr]: IWICBitmapFlipRotator
+
+1. _ppIBitmapFlipRotator_ - A pointer that receives a pointer to a new [IWICBitmapFlipRotator][wbfr].
 
 ### CreateBitmapFlipRotator - Return value
 
@@ -81,7 +164,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateBitmapFromHBITMAP
 
-Creates an IWICBitmap from a bitmap handle.
+Creates an [IWICBitmap][wb] from a bitmap handle.
 
 ```cpp
 HRESULT CreateBitmapFromHBITMAP(
@@ -106,11 +189,11 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateBitmapFromHBITMAP - Remarks
 
-For a non-palletized bitmap, set NULL for the hPalette parameter.
+For a non-palletized bitmap, set **NULL** for the hPalette parameter.
 
 ## CreateBitmapFromHICON
 
-Creates an IWICBitmap from an icon handle.
+Creates an [IWICBitmap][wb] from an icon handle.
 
 ```cpp
 HRESULT CreateBitmapFromHICON(
@@ -131,7 +214,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateBitmapFromMemory
 
-Creates an IWICBitmap from a memory block.
+Creates an [IWICBitmap][wb] from a memory block.
 
 ```cpp
 HRESULT CreateBitmapFromMemory(
@@ -162,34 +245,34 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateBitmapFromMemory - Remarks
 
-The size of the IWICBitmap to be created must be smaller than or equal to the size of the image in pbBuffer.
+The size of the [IWICBitmap][wb] to be created must be smaller than or equal to the size of the image in *pbBuffer*.
 
 The stride of the destination bitmap will equal the stride of the source data, regardless of the width and height specified.
 
-The pixelFormat parameter defines the pixel format for both the input data and the output bitmap.
+The *pixelFormat* parameter defines the pixel format for both the input data and the output bitmap.
 
 ## CreateBitmapFromSource
 
-Creates a IWICBitmap from a IWICBitmapSource.
+Creates a [IWICBitmap][wb] from a [IWICBitmapSource][wbso].
 
 ```cpp
 HRESULT CreateBitmapFromSource(
-     IWICBitmapSource           *pIBitmapSource, // [in]
-     WICBitmapCreateCacheOption option, // [in]
+    IWICBitmapSource           *pIBitmapSource, // [in]
+    WICBitmapCreateCacheOption option, // [in]
     IWICBitmap                 **ppIBitmap // [out]
 );
 ```
 
 ### CreateBitmapFromSource - Parameter
 
-1. _pIBitmapSource_ - The IWICBitmapSource to create the bitmap from.
-2. _option_ - The cache options of the new bitmap. This can be one of the values in the WICBitmapCreateCacheOption enumeration.
+1. _pIBitmapSource_ - The [IWICBitmapSource][wbso] to create the bitmap from.
+2. _option_ - The cache options of the new bitmap. This can be one of the values in the **WICBitmapCreateCacheOption** enumeration.
 
    | Value                  | Meaning                                                               |
    | :--------------------- | :-------------------------------------------------------------------- |
-   | WICBitmapNoCache       | Do not create a system memory copy. Share the bitmap with the source. |
-   | WICBitmapCacheOnDemand | Create a system memory copy when the bitmap is first used.            |
-   | WICBitmapCacheOnLoad   | Create a system memory copy when this method is called.               |
+   | **WICBitmapNoCache**       | Do not create a system memory copy. Share the bitmap with the source. |
+   | **WICBitmapCacheOnDemand** | Create a system memory copy when the bitmap is first used.            |
+   | **WICBitmapCacheOnLoad**   | Create a system memory copy when this method is called.               |
 
 3. _ppIBitmap_ - A pointer that receives a pointer to the new bitmap.
 
@@ -200,7 +283,9 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateBitmapFromSourceRect
 
-Creates an IWICBitmap from a specified rectangle of an IWICBitmapSource.
+[wb]: IWICBitmap
+
+Creates an [IWICBitmap][wb] from a specified rectangle of an [IWICBitmapSource][wbso].
 
 ```cpp
 HRESULT CreateBitmapFromSourceRect(
@@ -215,7 +300,9 @@ HRESULT CreateBitmapFromSourceRect(
 
 ### CreateBitmapFromSourceRect - Parameter
 
-1. _pIBitmapSource_ - The IWICBitmapSource to create the bitmap from.
+[wbso]: IWICBitmapSource
+
+1. _pIBitmapSource_ - The [IWICBitmapSource][wbso] to create the bitmap from.
 2. _x_ - The horizontal coordinate of the upper-left corner of the rectangle.
 3. _y_ - The vertical coordinate of the upper-left corner of the rectangle.
 4. _width_ - The width of the rectangle and the new bitmap.
@@ -231,11 +318,11 @@ Otherwise, it returns an **HRESULT** error code.
 
 Providing a rectangle that is larger than the source will produce undefined results.
 
-This method always creates a separate copy of the source image, similar to the cache option WICBitmapCacheOnLoad.
+This method always creates a separate copy of the source image, similar to the cache option **WICBitmapCacheOnLoad**.
 
 ## CreateBitmapScaler
 
-Creates a new instance of an IWICBitmapScaler.
+Creates a new instance of an [IWICBitmapScaler][wbs].
 
 ```cpp
 HRESULT CreateBitmapScaler(
@@ -245,7 +332,9 @@ HRESULT CreateBitmapScaler(
 
 ### CreateBitmapScaler - Parameter
 
-1. _ppIBitmapScaler_ - A pointer that receives a pointer to a new IWICBitmapScaler.
+[wbs]: IWICBitmapScaler
+
+1. _ppIBitmapScaler_ - A pointer that receives a pointer to a new [IWICBitmapScaler][wbs].
 
 ### CreateBitmapScaler - Return value
 
@@ -254,7 +343,9 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateColorContext
 
-Creates a new instance of the IWICColorContext class.
+[wcc]: IWICColorContext
+
+Creates a new instance of the [IWICColorContext][wcc] class.
 
 ```cpp
 HRESULT CreateColorContext(
@@ -273,7 +364,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateColorTransformer
 
-Creates a new instance of the IWICColorTransform class.
+Creates a new instance of the [IWICColorTransform][wct] class.
 
 ```cpp
 HRESULT CreateColorTransformer(
@@ -283,7 +374,9 @@ HRESULT CreateColorTransformer(
 
 ### CreateColorTransformer - Parameter
 
-1. _ppIWICColorTransform_ - A pointer that receives a pointer to a new IWICColorTransform.
+[wct]: IWICColorTransform
+
+1. _ppIWICColorTransform_ - A pointer that receives a pointer to a new [IWICColorTransform][wct].
 
 ### CreateColorTransformer - Return value
 
@@ -296,8 +389,8 @@ Creates an IEnumUnknown object of the specified component types.
 
 ```cpp
 HRESULT CreateComponentEnumerator(
-     DWORD        componentTypes, // [in]
-     DWORD        options, // [in]
+    DWORD        componentTypes,  // [in]
+    DWORD        options,         // [in]
     IEnumUnknown **ppIEnumUnknown // [out]
 );
 ```
@@ -323,15 +416,17 @@ Creates a new instance of the IWICComponentInfo class for the given component cl
 
 ```cpp
 HRESULT CreateComponentInfo(
-     REFCLSID          clsidComponent, // [in]
-    IWICComponentInfo **ppIInfo // [out]
+    REFCLSID          clsidComponent, // [in]
+    IWICComponentInfo **ppIInfo       // [out]
 );
 ```
 
 ### CreateComponentInfo - Parameter
 
+[wci]: IWICComponentInfo
+
 1. _clsidComponent_ - The CLSID for the desired component.
-2. _ppIInfo_ - A pointer that receives a pointer to a new IWICComponentInfo.
+2. _ppIInfo_ - A pointer that receives a pointer to a new [IWICComponentInfo][wci].
 
 ### CreateComponentInfo - Return value
 
@@ -340,7 +435,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateDecoder
 
-Creates a new instance of IWICBitmapDecoder.
+Creates a new instance of [IWICBitmapDecoder][wbd].
 
 ```cpp
 HRESULT CreateDecoder(
@@ -356,23 +451,24 @@ HRESULT CreateDecoder(
 
    | Value                    | Meaning                             |
    | :----------------------- | :---------------------------------- |
-   | GUID_ContainerFormatBmp  | The BMP container format GUID.      |
-   | GUID_ContainerFormatPng  | The PNG container format GUID.      |
-   | GUID_ContainerFormatIco  | The ICO container format GUID.      |
-   | GUID_ContainerFormatJpeg | The JPEG container format GUID.     |
-   | GUID_ContainerFormatTiff | The TIFF container format GUID.     |
-   | GUID_ContainerFormatGif  | The GIF container format GUID.      |
-   | GUID_ContainerFormatWmp  | The HD Photo container format GUID. |
+   | **GUID_ContainerFormatBmp**  | The BMP container format GUID.      |
+   | **GUID_ContainerFormatPng**  | The PNG container format GUID.      |
+   | **GUID_ContainerFormatIco**  | The ICO container format GUID.      |
+   | **GUID_ContainerFormatJpeg** | The JPEG container format GUID.     |
+   | **GUID_ContainerFormatTiff** | The TIFF container format GUID.     |
+   | **GUID_ContainerFormatGif**  | The GIF container format GUID.      |
+   | **GUID_ContainerFormatWmp**  | The HD Photo container format GUID. |
 
 2. _pguidVendor_ - The GUID for the preferred encoder vendor.
 
    | Value                       | Meaning                                     |
    | :-------------------------- | :------------------------------------------ |
-   | NULL                        | No preferred codec vendor.                  |
-   | GUID_VendorMicrosoft        | Prefer to use Microsoft encoder.            |
-   | GUID_VendorMicrosoftBuiltIn | Prefer to use the native Microsoft encoder. |
+   | **NULL**                        | No preferred codec vendor.                  |
+   | **GUID_VendorMicrosoft**        | Prefer to use Microsoft encoder.            |
+   | **GUID_VendorMicrosoftBuiltIn** | Prefer to use the native Microsoft encoder. |
 
-3. _ppIDecoder_ - A pointer that receives a pointer to a new IWICBitmapDecoder. You must initialize this IWICBitmapDecoder on a stream using the Initialize method later.
+3. _ppIDecoder_ - A pointer that receives a pointer to a new [IWICBitmapDecoder][wbd].
+   You must initialize this [IWICBitmapDecoder][wbd] on a stream using the Initialize method later.
 
 ### CreateDecoder - Return value
 
@@ -381,11 +477,12 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateDecoder - Remarks
 
-Other values may be available for both guidContainerFormat and pguidVendor depending on the installed WIC-enabled encoders. The values listed are those that are natively supported by the operating system.
+Other values may be available for both guidContainerFormat and pguidVendor depending on the installed WIC-enabled encoders.
+The values listed are those that are natively supported by the operating system.
 
 ## CreateDecoderFromFileHandle
 
-Creates a new instance of the IWICBitmapDecoder based on the given file handle.
+Creates a new instance of the [IWICBitmapDecoder][wbd] based on the given file handle.
 
 ```cpp
 HRESULT CreateDecoderFromFileHandle(
@@ -398,10 +495,12 @@ HRESULT CreateDecoderFromFileHandle(
 
 ### CreateDecoderFromFileHandle - Parameter
 
+[wbd]: IWICBitmapDecoder
+
 1. _hFile_ - The file handle to create the decoder from.
 2. _pguidVendor_ - The GUID for the preferred decoder vendor. Use NULL if no preferred vendor.
-3. _metadataOptions_ - The WICDecodeOptions to use when creating the decoder.
-4. _ppIDecoder_ - A pointer that receives a pointer to a new IWICBitmapDecoder.
+3. _metadataOptions_ - The [WICDecodeOptions][wdo] to use when creating the decoder.
+4. _ppIDecoder_ - A pointer that receives a pointer to a new [IWICBitmapDecoder][wbd].
 
 ### CreateDecoderFromFileHandle - Return value
 
@@ -414,7 +513,7 @@ When a decoder is created using this method, the file handle must remain alive d
 
 ## CreateDecoderFromFilename
 
-Creates a new instance of the IWICBitmapDecoder class based on the given file.
+Creates a new instance of the [IWICBitmapDecoder][wbd] class based on the given file.
 
 ```cpp
 HRESULT CreateDecoderFromFilename(
@@ -462,9 +561,11 @@ HRESULT CreateDecoderFromStream(
 
 ### CreateDecoderFromStream - Parameter
 
+[wdo]: WICDecodeOptions
+
 1. _pIStream_ - The stream to create the decoder from.
 2. _pguidVendor_ - The GUID for the preferred decoder vendor. Use NULL if no preferred vendor.
-3. _metadataOptions_ - The WICDecodeOptions to use when creating the decoder.
+3. _metadataOptions_ - The [WICDecodeOptions][wdo] to use when creating the decoder.
 4. _ppIDecoder_ - A pointer that receives a pointer to a new IWICBitmapDecoder.
 
 ### CreateDecoderFromStream - Return value
@@ -490,21 +591,21 @@ HRESULT CreateEncoder(
 
    | Value                    | Meaning                             |
    | :----------------------- | :---------------------------------- |
-   | GUID_ContainerFormatBmp  | The BMP container format GUID.      |
-   | GUID_ContainerFormatPng  | The PNG container format GUID.      |
-   | GUID_ContainerFormatIco  | The ICO container format GUID.      |
-   | GUID_ContainerFormatJpeg | The JPEG container format GUID.     |
-   | GUID_ContainerFormatTiff | The TIFF container format GUID.     |
-   | GUID_ContainerFormatGif  | The GIF container format GUID.      |
-   | GUID_ContainerFormatWmp  | The HD Photo container format GUID. |
+   | **GUID_ContainerFormatBmp**  | The BMP container format GUID.      |
+   | **GUID_ContainerFormatPng**  | The PNG container format GUID.      |
+   | **GUID_ContainerFormatIco**  | The ICO container format GUID.      |
+   | **GUID_ContainerFormatJpeg** | The JPEG container format GUID.     |
+   | **GUID_ContainerFormatTiff** | The TIFF container format GUID.     |
+   | **GUID_ContainerFormatGif**  | The GIF container format GUID.      |
+   | **GUID_ContainerFormatWmp**  | The HD Photo container format GUID. |
 
 2. _pguidVendor_ - The GUID for the preferred encoder vendor.
 
    | Value                       | Meaning                                     |
    | :-------------------------- | :------------------------------------------ |
-   | NULL                        | No preferred codec vendor.                  |
-   | GUID_VendorMicrosoft        | Prefer to use Microsoft encoder.            |
-   | GUID_VendorMicrosoftBuiltIn | Prefer to use the native Microsoft encoder. |
+   | **NULL**                        | No preferred codec vendor.                  |
+   | **GUID_VendorMicrosoft**        | Prefer to use Microsoft encoder.            |
+   | **GUID_VendorMicrosoftBuiltIn** | Prefer to use the native Microsoft encoder. |
 
 3. _ppIEncoder_ - A pointer that receives a pointer to a new IWICBitmapEncoder.
 
