@@ -28,11 +28,11 @@ The **IWICStream** interface inherits from IStream.
 ## Remarks
 
 Decoders and metadata handlers are expected to create sub streams of whatever stream they hold when handing off control for embedded metadata to another metadata handler.
-If the stream is not restricted then use MAXLONGLONG as the max size and offset 0.
+If the stream is not restricted then use **MAXLONGLONG** as the max size and offset 0.
 
 The **IWICStream** interface methods do not enable you to provide a file sharing option.
 To create a file stream for an image, use the SHCreateStreamOnFileEx function.
-This stream can then be used to create an IWICBitmapDecoder using the CreateDecoderFromStream method.
+This stream can then be used to create an [IWICBitmapDecoder][wbd] using the CreateDecoderFromStream method.
 
 ## InitializeFromFilename
 
@@ -40,7 +40,7 @@ Initializes a stream from a particular file.
 
 ```cpp
 HRESULT InitializeFromFilename(
-    LPCWSTR wzFileName, // [in]
+    LPCWSTR wzFileName,     // [in]
     DWORD   dwDesiredAccess // [in]
 );
 ```
@@ -93,8 +93,8 @@ Initializes the stream as a substream of another stream.
 ```cpp
 HRESULT InitializeFromIStreamRegion(
     IStream        *pIStream, // [in]
-    ULARGE_INTEGER ulOffset, // [in]
-    ULARGE_INTEGER ulMaxSize // [in]
+    ULARGE_INTEGER ulOffset,  // [in]
+    ULARGE_INTEGER ulMaxSize  // [in]
 );
 ```
 

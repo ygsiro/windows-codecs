@@ -8,7 +8,7 @@ layout: index
 
 ### [IWICBitmap](IWICBitmap)
 
-Defines methods that add the concept of writeability and static in-memory representations of bitmaps to IWICBitmapSource.
+Defines methods that add the concept of writeability and static in-memory representations of bitmaps to [IWICBitmapSource](#iwicbitmapsource).
 
 ### [IWICBitmapClipper](IWICBitmapClipper)
 
@@ -65,7 +65,7 @@ Exposes methods that refers to a source from which pixels are retrieved, but can
 
 ### [IWICBitmapSourceTransform](IWICBitmapSourceTransform)
 
-Exposes methods for offloading certain operations to the underlying IWICBitmapSource implementation.
+Exposes methods for offloading certain operations to the underlying [IWICBitmapSource](IWICBitmapSource) implementation.
 
 ### [IWICColorContext](IWICColorContext)
 
@@ -73,7 +73,7 @@ Exposes methods for color management.
 
 ### [IWICColorTransform](IWICColorTransform)
 
-Exposes methods that transforms an IWICBitmapSource from one color context to another.
+Exposes methods that transforms an [IWICBitmapSource](IWICBitmapSource) from one color context to another.
 
 ### [IWICComponentInfo](IWICComponentInfo)
 
@@ -89,7 +89,7 @@ Enables writing DDS format specific information to an encoder.
 
 ### [IWICDdsFrameDecode](IWICDdsFrameDecode)
 
-Provides access to a single frame of DDS image data in its native DXGI_FORMAT form, as well as information about the image data.
+Provides access to a single frame of DDS image data in its native **DXGI_FORMAT** form, as well as information about the image data.
 
 ### [IWICDevelopRaw](IWICDevelopRaw)
 
@@ -126,12 +126,13 @@ Exposes methods used to create components for the Windows Imaging Component (**W
 
 ### [IWICImagingFactory2](IWICImagingFactory2)
 
-An extension of the WIC factory interface that includes the ability to create an IWICImageEncoder.
+An extension of the WIC factory interface that includes the ability to create an [IWICImageEncoder](IWICImageEncoder).
 
 ### [IWICJpegFrameDecode](IWICJpegFrameDecode)
 
 Exposes methods for decoding JPEG images.
-Provides access to the Start Of Frame (**SOF**) header, Start of Scan (**SOS**) header, the Huffman and Quantization tables, and the compressed JPEG JPEG data. Also enables indexing for efficient random access.
+Provides access to the Start Of Frame (**SOF**) header, Start of Scan (**SOS**) header, the Huffman and Quantization tables, and the compressed JPEG JPEG data.
+Also enables indexing for efficient random access.
 
 ### [IWICJpegFrameEncode](IWICJpegFrameEncode)
 
@@ -172,7 +173,7 @@ Allows a format converter to be initialized with a planar source.
 
 ### [IWICProgressCallback](IWICProgressCallback)
 
-IWICProgressCallback interface is documented only for compliance;
+**IWICProgressCallback** interface is documented only for compliance;
 its use is not recommended and may be altered or unavailable in the future.
 Instead, and use RegisterProgressNotification.
 
@@ -188,15 +189,15 @@ Represents a Windows Imaging Component (**WIC**) stream for referencing imaging 
 
 ### [WICConvertBitmapSource](WICConvertBitmapSource)
 
-Obtains a IWICBitmapSource in the desired pixel format from a given IWICBitmapSource.
+Obtains a [IWICBitmapSource](IWICBitmapSource) in the desired pixel format from a given [IWICBitmapSource](IWICBitmapSource).
 
 ### [WICCreateBitmapFromSection](WICCreateBitmapFromSection)
 
-Returns a IWICBitmapSource that is backed by the pixels of a Windows Graphics Device Interface (**GDI**) section handle.
+Returns a [IWICBitmapSource](IWICBitmapSource) that is backed by the pixels of a Windows Graphics Device Interface (**GDI**) section handle.
 
 ### [WICCreateBitmapFromSectionEx](WICCreateBitmapFromSectionEx)
 
-Returns a IWICBitmapSource that is backed by the pixels of a Windows Graphics Device Interface (**GDI**) section handle.
+Returns a [IWICBitmapSource](IWICBitmapSource) that is backed by the pixels of a Windows Graphics Device Interface (**GDI**) section handle.
 
 ### [WICMapGuidToShortName](WICMapGuidToShortName)
 
@@ -232,11 +233,11 @@ Specifies the pixel format and size of a component plane.
 
 ### [WICDdsFormatInfo](WICDdsFormatInfo)
 
-Specifies the DXGI_FORMAT and block information of a DDS format.
+Specifies the **DXGI_FORMAT** and block information of a DDS format.
 
 ### [WICDdsParameters](WICDdsParameters)
 
-Specifies the DDS image dimension, DXGI_FORMAT and alpha mode of contained data.
+Specifies the DDS image dimension, **DXGI_FORMAT** and alpha mode of contained data.
 
 ### [WICImageParameters](WICImageParameters)
 
@@ -410,7 +411,7 @@ Defines constants that specify a primitive type for numeric representation of a 
 
 ### [WICPlanarOptions](WICPlanarOptions)
 
-Specifies additional options to an IWICPlanarBitmapSourceTransform implementation.
+Specifies additional options to an [IWICPlanarBitmapSourceTransform](IWICPlanarBitmapSourceTransform) implementation.
 
 ### [WICPngBkgdProperties](WICPngBkgdProperties)
 
