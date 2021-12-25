@@ -18,7 +18,6 @@ Exposes methods for setting or removing metadata blocks and items to an encoder 
 The **IWICMetadataQueryWriter** interface inherits from [IWICMetadataQueryReader][wmqr].
 **IWICMetadataQueryWriter** also has these types of members:
 
-- [Remarks](#remarks)
 - [RemoveMetadataByName](#removemetadatabyname)
 - [SetMetadataByName](#setmetadatabyname)
 

@@ -21,6 +21,10 @@ Encodes ID2D1Image interfaces to an [IWICBitmapEncoder][wbe].
 The **IWICImageEncoder** interface inherits from the IUnknown interface.
 **IWICImageEncoder** also has these types of members:
 
+- [WriteFrame](#writeframe)
+- [WriteFrameThumbnail](#writeframethumbnail)
+- [WriteThumbnail](#writethumbnail)
+
 ## WriteFrame
 
 [wbfe]: IWICBitmapFrameEncode
@@ -106,7 +110,8 @@ HRESULT WriteThumbnail(
 
 ### WriteThumbnail - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### WriteThumbnail - Remarks
 

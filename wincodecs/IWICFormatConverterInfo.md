@@ -6,7 +6,6 @@ TOC:
   - name: Inheritance
   - name: CreateInstance
   - name: GetPixelFormats
-  - name: IWICFormatConverter
 code:
   - key: IWICFormatConverter
 ---
@@ -19,6 +18,9 @@ Exposes methods that provide information about a pixel format converter.
 
 The **IWICFormatConverterInfo** interface inherits from [IWICComponentInfo][wci].
 **IWICFormatConverterInfo** also has these types of members:
+
+- [CreateInstance](#createinstance)
+- [GetPixelFormats](#getpixelformats)
 
 ## CreateInstance
 
@@ -47,9 +49,9 @@ Retrieves a list of GUIDs that signify which pixel formats the converter support
 
 ```cpp
 HRESULT GetPixelFormats(
-    UINT               cFormats, // [in]
+    UINT               cFormats,           // [in]
     WICPixelFormatGUID *pPixelFormatGUIDs, // [in, out]
-    UINT               *pcActual // [out]
+    UINT               *pcActual           // [out]
 );
 ```
 

@@ -22,6 +22,11 @@ Exposes methods for offloading certain operations to the underlying [IWICBitmapS
 
 The **IWICBitmapSourceTransform** interface inherits from the IUnknown interface. **IWICBitmapSourceTransform** also has these types of members:
 
+- [CopyPixels](#copypixels)
+- [DoesSupportTransform](#doessupporttransform)
+- [GetClosestPixelFormat](#getclosestpixelformat)
+- [GetClosestSize](#getclosestsize)
+
 ## Remarks
 
 [wfc]: IWICFormatConverter
@@ -64,7 +69,7 @@ HRESULT CopyPixels(
    This GUID must be a format obtained through an [GetClosestPixelFormat][gcpf] call.
 5. _dstTransform_ - The desired rotation or flip to perform prior to the pixel copy.
    The transform must be an operation supported by an [DoesSupportTransform][dst] call.
-   If a dstTransform is specified, nStride is the transformed stride and is based on the pguidDstFormat pixel format, not the original source's pixel format.
+   If a *dstTransform* is specified, *nStride* is the transformed stride and is based on the *pguidDstFormat* pixel format, not the original source's pixel format.
 6. _nStride_ - The stride of the destination buffer.
 7. _cbBufferSize_ - The size of the destination buffer.
 8. _pbBuffer_ - The output buffer.
@@ -76,7 +81,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CopyPixels - Codec Developer Remarks
 
-If NULL is passed in for prc, the entire image is copied.
+If **NULL** is passed in for *prc*, the entire image is copied.
 For codec developer implementation details for this method, see Implementing **IWICBitmapSourceTransform**.
 
 When multiple transform operations are requested, the result is dependent on the order in which the operations are performed.
@@ -88,10 +93,10 @@ To ensure predictability and consistency across CODECs, it's important that all 
 
 Pixel format conversion can be performed at any time, since it has no effect on the other transforms.
 
-The first parameter, prc is used to specify the region of interest for clipping the image.
+The first parameter, *prc* is used to specify the region of interest for clipping the image.
 By convention, scaling is performed before clipping so, if the image is to be scaled as well as clipped, the region of interest should be determined after the image has been scaled.
 
-If a dstTransform is specified, the stride is the transformed stride, and is based on the pixelFormat specified in the CopyPixels call, not the original frame's pixel format.
+If a *dstTransform* is specified, the stride is the transformed stride, and is based on the *pixelFormat* specified in the **CopyPixels** call, not the original frame's pixel format.
 
 ## DoesSupportTransform
 

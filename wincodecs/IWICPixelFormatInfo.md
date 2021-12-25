@@ -73,9 +73,9 @@ Gets the pixel format's channel mask.
 ```cpp
 HRESULT GetChannelMask(
     UINT uiChannelIndex, // [in]
-    UINT cbMaskBuffer, // [in]
-    BYTE *pbMaskBuffer, // [in, out]
-    UINT *pcbActual // [out]
+    UINT cbMaskBuffer,   // [in]
+    BYTE *pbMaskBuffer,  // [in, out]
+    UINT *pcbActual      // [out]
 );
 ```
 

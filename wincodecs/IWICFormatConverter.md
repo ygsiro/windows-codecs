@@ -4,6 +4,8 @@ category: Interface
 title: IWICFormatConverter
 TOC:
   - name: Inheritance
+  - name: CanConvert
+  - name: Initialize
 code:
   - key: WICBitmapDitherType
   - key: IWICPalette
@@ -18,6 +20,9 @@ Represents an [IWICBitmapSource][wbs] that converts the image data from one pixe
 
 The **IWICFormatConverter** interface inherits from [IWICBitmapSource][wbs].
 **IWICFormatConverter** also has these types of members:
+
+- [CanConvert](#canconvert)
+- [Initialize](#initialize)
 
 ## CanConvert
 
@@ -39,7 +44,8 @@ HRESULT CanConvert(
 
 ### CanConvert - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## Initialize
 
@@ -47,12 +53,12 @@ Initializes the format converter.
 
 ```cpp
 HRESULT Initialize(
-    [IWICBitmapSource][wbs]      *pISource, // [in]
-    REFWICPixelFormatGUID dstFormat, // [in]
-    WICBitmapDitherType   dither, // [in]
-    IWICPalette           *pIPalette, // [in]
+    IWICBitmapSource      *pISource,             // [in]
+    REFWICPixelFormatGUID dstFormat,             // [in]
+    WICBitmapDitherType   dither,                // [in]
+    IWICPalette           *pIPalette,            // [in]
     double                alphaThresholdPercent, // [in]
-    WICBitmapPaletteType  paletteTranslate // [in]
+    WICBitmapPaletteType  paletteTranslate       // [in]
 );
 ```
 
@@ -94,7 +100,7 @@ If colors in pIPalette do not closely match those in *paletteTranslate*, the map
 [WICBitmapDitherTypeOrdered4x4][wbdt] can be useful in format conversions from 8-bit formats to 5- or 6-bit formats as there is no way to accurately convert color data.
 
 [WICBitmapDitherTypeErrorDiffusion][wbdt] selects the error diffusion algorithm and may be used with any palette.
-If an arbitrary palette is provided, WICBitmapPaletteCustom should be passed in as the *paletteTranslate*.
+If an arbitrary palette is provided, [WICBitmapPaletteCustom][wbpt] should be passed in as the *paletteTranslate*.
 Error diffusion often provides superior results compared to the ordered dithering algorithms especially when combined with the optimized palette generation functionality on the [IWICPalette][wp].
 
 [wp]: IWICPalette

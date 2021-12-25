@@ -16,6 +16,8 @@ Exposes methods used for progress notification for encoders and decoders.
 The **IWICBitmapCodecProgressNotification** interface inherits from the IUnknown interface.
 **IWICBitmapCodecProgressNotification** also has these types of members:
 
+- [RegisterProgressNotification](#registerprogressnotification)
+
 ## RegisterProgressNotification
 
 Registers a progress notification callback function.

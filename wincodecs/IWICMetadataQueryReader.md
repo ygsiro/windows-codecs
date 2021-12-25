@@ -18,6 +18,11 @@ Exposes methods for retrieving metadata blocks and items from a decoder or its i
 The **IWICMetadataQueryReader** interface inherits from the IUnknown interface.
 **IWICMetadataQueryReader** also has these types of members:
 
+- [GetContainerFormat](#getcontainerformat)
+- [GetEnumerator](#getenumerator)
+- [GetLocation](#getlocation)
+- [GetMetadataByName](#getmetadatabyname)
+
 ## Remarks
 
 A metadata query reader uses metadata query expressions to access embedded metadata.

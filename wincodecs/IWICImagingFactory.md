@@ -90,11 +90,11 @@ Creates an [IWICBitmap][wb] object.
 
 ```cpp
 HRESULT CreateBitmap(
-    UINT                       uiWidth, // [in]
-    UINT                       uiHeight, // [in]
+    UINT                       uiWidth,     // [in]
+    UINT                       uiHeight,    // [in]
     REFWICPixelFormatGUID      pixelFormat, // [in]
-    WICBitmapCreateCacheOption option, // [in]
-    IWICBitmap                 **ppIBitmap // [out]
+    WICBitmapCreateCacheOption option,      // [in]
+    IWICBitmap                 **ppIBitmap  // [out]
 );
 ```
 
@@ -105,7 +105,8 @@ HRESULT CreateBitmap(
 1. _uiWidth_ - The width of the new bitmap .
 2. _uiHeight_ - The height of the new bitmap.
 3. _pixelFormat_ - The pixel format of the new bitmap.
-4. _option_ - The cache creation options of the new bitmap. This can be one of the values in the [WICBitmapCreateCacheOption][wbcco] enumeration.
+4. _option_ - The cache creation options of the new bitmap.
+   This can be one of the values in the [WICBitmapCreateCacheOption][wbcco] enumeration.
 
    | Value                  | Meaning                                                               |
    | :--------------------- | :-------------------------------------------------------------------- |
@@ -168,9 +169,9 @@ Creates an [IWICBitmap][wb] from a bitmap handle.
 
 ```cpp
 HRESULT CreateBitmapFromHBITMAP(
-    HBITMAP                     hBitmap, // [in]
-    HPALETTE                    hPalette, // [in]
-    WICBitmapAlphaChannelOption options, // [in]
+    HBITMAP                     hBitmap,    // [in]
+    HPALETTE                    hPalette,   // [in]
+    WICBitmapAlphaChannelOption options,    // [in]
     IWICBitmap                  **ppIBitmap // [out]
 );
 ```
@@ -197,7 +198,7 @@ Creates an [IWICBitmap][wb] from an icon handle.
 
 ```cpp
 HRESULT CreateBitmapFromHICON(
-    HICON      hIcon, // [in]
+    HICON      hIcon,      // [in]
     IWICBitmap **ppIBitmap // [out]
 );
 ```
@@ -218,13 +219,13 @@ Creates an [IWICBitmap][wb] from a memory block.
 
 ```cpp
 HRESULT CreateBitmapFromMemory(
-    UINT                  uiWidth, // [in]
-    UINT                  uiHeight, // [in]
-    REFWICPixelFormatGUID pixelFormat, // [in]
-    UINT                  cbStride, // [in]
+    UINT                  uiWidth,      // [in]
+    UINT                  uiHeight,     // [in]
+    REFWICPixelFormatGUID pixelFormat,  // [in]
+    UINT                  cbStride,     // [in]
     UINT                  cbBufferSize, // [in]
-    BYTE                  *pbBuffer, // [in]
-    IWICBitmap            **ppIBitmap // [out]
+    BYTE                  *pbBuffer,    // [in]
+    IWICBitmap            **ppIBitmap   // [out]
 );
 ```
 
@@ -232,9 +233,10 @@ HRESULT CreateBitmapFromMemory(
 
 1. _uiWidth_ - The width of the new bitmap.
 2. _uiHeight_ - The height of the new bitmap.
-3. _pixelFormat_ - The pixel format of the new bitmap. For valid pixel formats, see Native Pixel Formats.
+3. _pixelFormat_ - The pixel format of the new bitmap.
+   For valid pixel formats, see Native Pixel Formats.
 4. _cbStride_ - The number of bytes between successive scanlines in pbBuffer.
-5. _cbBufferSize_ - The size of pbBuffer.
+5. _cbBufferSize_ - The size of *pbBuffer*.
 6. _pbBuffer_ - The buffer used to create the bitmap.
 7. _ppIBitmap_ - A pointer that receives a pointer to the new bitmap.
 
@@ -258,8 +260,8 @@ Creates a [IWICBitmap][wb] from a [IWICBitmapSource][wbso].
 ```cpp
 HRESULT CreateBitmapFromSource(
     IWICBitmapSource           *pIBitmapSource, // [in]
-    WICBitmapCreateCacheOption option, // [in]
-    IWICBitmap                 **ppIBitmap // [out]
+    WICBitmapCreateCacheOption option,          // [in]
+    IWICBitmap                 **ppIBitmap      // [out]
 );
 ```
 
@@ -290,11 +292,11 @@ Creates an [IWICBitmap][wb] from a specified rectangle of an [IWICBitmapSource][
 ```cpp
 HRESULT CreateBitmapFromSourceRect(
     IWICBitmapSource *pIBitmapSource, // [in]
-    UINT             x, // [in]
-    UINT             y, // [in]
-    UINT             width, // [in]
-    UINT             height, // [in]
-    IWICBitmap       **ppIBitmap // [out]
+    UINT             x,               // [in]
+    UINT             y,               // [in]
+    UINT             width,           // [in]
+    UINT             height,          // [in]
+    IWICBitmap       **ppIBitmap      // [out]
 );
 ```
 
@@ -355,7 +357,7 @@ HRESULT CreateColorContext(
 
 ### CreateColorContext - Parameter
 
-1. _ppIWICColorContext_ - A pointer that receives a pointer to a new IWICColorContext.
+1. _ppIWICColorContext_ - A pointer that receives a pointer to a new [IWICColorContext][wcc].
 
 ### CreateColorContext - Return value
 
@@ -440,8 +442,8 @@ Creates a new instance of [IWICBitmapDecoder][wbd].
 ```cpp
 HRESULT CreateDecoder(
     REFGUID           guidContainerFormat, // [in]
-    const GUID        *pguidVendor, // [in]
-    IWICBitmapDecoder **ppIDecoder // [out, retval]
+    const GUID        *pguidVendor,        // [in]
+    IWICBitmapDecoder **ppIDecoder         // [out, retval]
 );
 ```
 
@@ -477,7 +479,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateDecoder - Remarks
 
-Other values may be available for both guidContainerFormat and pguidVendor depending on the installed WIC-enabled encoders.
+Other values may be available for both *guidContainerFormat* and *pguidVendor* depending on the installed WIC-enabled encoders.
 The values listed are those that are natively supported by the operating system.
 
 ## CreateDecoderFromFileHandle
@@ -486,10 +488,10 @@ Creates a new instance of the [IWICBitmapDecoder][wbd] based on the given file h
 
 ```cpp
 HRESULT CreateDecoderFromFileHandle(
-    ULONG_PTR         hFile, // [in]
-    const GUID        *pguidVendor, // [in]
+    ULONG_PTR         hFile,           // [in]
+    const GUID        *pguidVendor,    // [in]
     WICDecodeOptions  metadataOptions, // [in]
-    IWICBitmapDecoder **ppIDecoder // [out, retval]
+    IWICBitmapDecoder **ppIDecoder     // [out, retval]
 );
 ```
 
@@ -517,11 +519,11 @@ Creates a new instance of the [IWICBitmapDecoder][wbd] class based on the given 
 
 ```cpp
 HRESULT CreateDecoderFromFilename(
-    LPCWSTR           wzFilename, // [in]
-    const GUID        *pguidVendor, // [in]
+    LPCWSTR           wzFilename,      // [in]
+    const GUID        *pguidVendor,    // [in]
     DWORD             dwDesiredAccess, // [in]
     WICDecodeOptions  metadataOptions, // [in]
-    IWICBitmapDecoder **ppIDecoder // [out, retval]
+    IWICBitmapDecoder **ppIDecoder     // [out, retval]
 );
 ```
 
@@ -533,13 +535,13 @@ HRESULT CreateDecoderFromFilename(
 
    | Value         | Meaning       |
    | :------------ | :------------ |
-   | GENERIC_READ  | Read access.  |
-   | GENERIC_WRITE | Write access. |
+   | **GENERIC_READ**  | Read access.  |
+   | **GENERIC_WRITE** | Write access. |
 
    For more information, see Generic Access Rights.
 
 4. _metadataOptions_ - The WICDecodeOptions to use when creating the decoder.
-5. _ppIDecoder_ - A pointer that receives a pointer to the new IWICBitmapDecoder.
+5. _ppIDecoder_ - A pointer that receives a pointer to the new [IWICBitmapDecoder][wbd].
 
 ### CreateDecoderFromFilename - Return value
 
@@ -548,14 +550,14 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateDecoderFromStream
 
-Creates a new instance of the IWICBitmapDecoder class based on the given IStream.
+Creates a new instance of the [IWICBitmapDecoder][wbd] class based on the given IStream.
 
 ```cpp
 HRESULT CreateDecoderFromStream(
-    IStream           *pIStream, // [in]
-    const GUID        *pguidVendor, // [in]
+    IStream           *pIStream,       // [in]
+    const GUID        *pguidVendor,    // [in]
     WICDecodeOptions  metadataOptions, // [in]
-    IWICBitmapDecoder **ppIDecoder // [out, retval]
+    IWICBitmapDecoder **ppIDecoder     // [out, retval]
 );
 ```
 
@@ -564,9 +566,10 @@ HRESULT CreateDecoderFromStream(
 [wdo]: WICDecodeOptions
 
 1. _pIStream_ - The stream to create the decoder from.
-2. _pguidVendor_ - The GUID for the preferred decoder vendor. Use NULL if no preferred vendor.
+2. _pguidVendor_ - The GUID for the preferred decoder vendor.
+   Use **NULL** if no preferred vendor.
 3. _metadataOptions_ - The [WICDecodeOptions][wdo] to use when creating the decoder.
-4. _ppIDecoder_ - A pointer that receives a pointer to a new IWICBitmapDecoder.
+4. _ppIDecoder_ - A pointer that receives a pointer to a new [IWICBitmapDecoder][wbd].
 
 ### CreateDecoderFromStream - Return value
 
@@ -575,13 +578,15 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateEncoder
 
-Creates a new instance of the IWICBitmapEncoder class.
+[wbe]: IWICBitmapEncoder
+
+Creates a new instance of the [IWICBitmapEncoder][wbe] class.
 
 ```cpp
 HRESULT CreateEncoder(
     REFGUID           guidContainerFormat, // [in]
-    const GUID        *pguidVendor, // [in, optional]
-    IWICBitmapEncoder **ppIEncoder // [out, retval]
+    const GUID        *pguidVendor,        // [in, optional]
+    IWICBitmapEncoder **ppIEncoder         // [out, retval]
 );
 ```
 
@@ -607,7 +612,7 @@ HRESULT CreateEncoder(
    | **GUID_VendorMicrosoft**        | Prefer to use Microsoft encoder.            |
    | **GUID_VendorMicrosoftBuiltIn** | Prefer to use the native Microsoft encoder. |
 
-3. _ppIEncoder_ - A pointer that receives a pointer to a new IWICBitmapEncoder.
+3. _ppIEncoder_ - A pointer that receives a pointer to a new [IWICBitmapEncoder][wbe].
 
 ### CreateEncoder - Return value
 
@@ -616,23 +621,26 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateEncoder - Remarks
 
-Other values may be available for both guidContainerFormat and pguidVendor depending on the installed WIC-enabled encoders. The values listed are those that are natively supported by the operating system.
+Other values may be available for both *guidContainerFormat* and pguidVendor depending on the installed WIC-enabled encoders.
+The values listed are those that are natively supported by the operating system.
 
 ## CreateFastMetadataEncoderFromDecoder
 
-Creates a new instance of the fast metadata encoder based on the given IWICBitmapDecoder.
+Creates a new instance of the fast metadata encoder based on the given [IWICBitmapDecoder][wbd].
 
 ```cpp
 HRESULT CreateFastMetadataEncoderFromDecoder(
-    IWICBitmapDecoder       *pIDecoder, // [in]
+    IWICBitmapDecoder       *pIDecoder,      // [in]
     IWICFastMetadataEncoder **ppIFastEncoder // [out]
 );
 ```
 
 ### CreateFastMetadataEncoderFromDecoder - Parameter
 
+[wfme]: IWICFastMetadataEncoder
+
 1. *pIDecoder* - The decoder to create the fast metadata encoder from.
-2. *ppIFastEncoder* - When this method returns, contains a pointer to the new IWICFastMetadataEncoder.
+2. *ppIFastEncoder* - When this method returns, contains a pointer to the new [IWICFastMetadataEncoder][wfme].
 
 ### CreateFastMetadataEncoderFromDecoder - Return value
 
@@ -641,7 +649,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ### CreateFastMetadataEncoderFromDecoder - Remarks
 
-The Windows provided codecs do not support fast metadata encoding at the decoder level, and only support fast metadata encoding at the frame level. To create a fast metadata encoder from a frame, see CreateFastMetadataEncoderFromFrameDecode.
+The Windows provided codecs do not support fast metadata encoding at the decoder level, and only support fast metadata encoding at the frame level. To create a fast metadata encoder from a frame, see [CreateFastMetadataEncoderFromFrameDecode](#createfastmetadataencoderfromframedecode).
 
 ## CreateFastMetadataEncoderFromFrameDecode
 
@@ -656,7 +664,9 @@ HRESULT CreateFastMetadataEncoderFromFrameDecode(
 
 ### CreateFastMetadataEncoderFromFrameDecode - Parameter
 
-1. *pIFrameDecoder* - The IWICBitmapFrameDecode to create the IWICFastMetadataEncoder from.
+[wbfd]: IWICBitmapFrameDecode
+
+1. *pIFrameDecoder* - The [IWICBitmapFrameDecode][wbfd] to create the [IWICFastMetadataEncoder][wfme] from.
 2. *ppIFastEncoder* - When this method returns, contains a pointer to a new fast metadata encoder.
 
 ### CreateFastMetadataEncoderFromFrameDecode - Return value
@@ -670,7 +680,9 @@ For a list of support metadata formats for fast metadata encoding, see WIC Metad
 
 ## CreateFormatConverter
 
-Creates a new instance of the IWICFormatConverter class.
+[wfc]: IWICFormatConverter
+
+Creates a new instance of the [IWICFormatConverter][wfc] class.
 
 ```cpp
 HRESULT CreateFormatConverter(
@@ -680,7 +692,7 @@ HRESULT CreateFormatConverter(
 
 ### CreateFormatConverter - Parameter
 
-1. *ppIFormatConverter* - A pointer that receives a pointer to a new IWICFormatConverter.
+1. *ppIFormatConverter* - A pointer that receives a pointer to a new [IWICFormatConverter][wfc].
 
 ### CreateFormatConverter - Return value
 
@@ -689,7 +701,9 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreatePalette
 
-Creates a new instance of the IWICPalette class.
+[wp]: IWICPalette
+
+Creates a new instance of the [IWICPalette][wp] class.
 
 ```cpp
 HRESULT CreatePalette(
@@ -699,7 +713,7 @@ HRESULT CreatePalette(
 
 ### CreatePalette - Parameter
 
-1. *ppIPalette* - A pointer that receives a pointer to a new IWICPalette.
+1. *ppIPalette* - A pointer that receives a pointer to a new [IWICPalette][wp].
 
 ### CreatePalette - Return value
 
@@ -712,17 +726,20 @@ Creates a new instance of a query writer.
 
 ```cpp
 HRESULT CreateQueryWriter(
-     REFGUID                 guidMetadataFormat, // [in]
-     const GUID              *pguidVendor, // [in]
-    IWICMetadataQueryWriter **ppIQueryWriter // [out]
+    REFGUID                 guidMetadataFormat, // [in]
+    const GUID              *pguidVendor,       // [in]
+    IWICMetadataQueryWriter **ppIQueryWriter    // [out]
 );
 ```
 
 ### CreateQueryWriter - Parameter
 
+[wmqr]: IWICMetadataQueryWriter
+
 1. *guidMetadataFormat* - The GUID for the desired metadata format.
-2. *pguidVendor* - The GUID for the preferred metadata writer vendor. Use NULL if no preferred vendor.
-3. *ppIQueryWriter* - When this method returns, contains a pointer to a new IWICMetadataQueryWriter.
+2. *pguidVendor* - The GUID for the preferred metadata writer vendor.
+   Use **NULL** if no preferred vendor.
+3. *ppIQueryWriter* - When this method returns, contains a pointer to a new [IWICMetadataQueryWriter][wmqw].
 
 ### CreateQueryWriter - Return value
 
@@ -731,20 +748,24 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateQueryWriterFromReader
 
-Creates a new instance of a query writer based on the given query reader. The query writer will be pre-populated with metadata from the query reader.
+Creates a new instance of a query writer based on the given query reader.
+The query writer will be pre-populated with metadata from the query reader.
 
 ```cpp
 HRESULT CreateQueryWriterFromReader(
-    IWICMetadataQueryReader *pIQueryReader, // [in]
-    const GUID              *pguidVendor, // [in]
+    IWICMetadataQueryReader *pIQueryReader,  // [in]
+    const GUID              *pguidVendor,    // [in]
     IWICMetadataQueryWriter **ppIQueryWriter // [out]
 );
 ```
 
 ### CreateQueryWriterFromReader - Parameter
 
-1. *pIQueryReader* - The IWICMetadataQueryReader to create the IWICMetadataQueryWriter from.
-2. *pguidVendor* - The GUID for the preferred metadata writer vendor. Use NULL if no preferred vendor.
+[wmqw]: IWICMetadataQueryWriter
+
+1. *pIQueryReader* - The [IWICMetadataQueryReader][wmqr] to create the [IWICMetadataQueryWriter][wmqw] from.
+2. *pguidVendor* - The GUID for the preferred metadata writer vendor.
+   Use **NULL** if no preferred vendor.
 3. *ppIQueryWriter* - When this method returns, contains a pointer to a new metadata writer.
 
 ### CreateQueryWriterFromReader - Return value
@@ -754,7 +775,9 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## CreateStream
 
-Creates a new instance of the IWICStream class.
+[ws]: IWICStream
+
+Creates a new instance of the [IWICStream][ws] class.
 
 ```cpp
 HRESULT CreateStream(
@@ -764,7 +787,7 @@ HRESULT CreateStream(
 
 ### CreateStream - Parameter
 
-1. *ppIWICStream* - A pointer that receives a pointer to a new IWICStream.
+1. *ppIWICStream* - A pointer that receives a pointer to a new [IWICStream][ws].
 
 ### CreateStream - Return value
 

@@ -15,8 +15,12 @@ Represents a resized version of the input bitmap using a resampling or filtering
 
 ## Inheritance
 
-The **IWICBitmapScaler** interface inherits from IWICBitmapSource.
+[wbs]: IWICBitmapSource
+
+The **IWICBitmapScaler** interface inherits from [IWICBitmapSource][wbs].
 **IWICBitmapScaler** also has these types of members:
+
+- [Initialize](#initialize)
 
 ## Remarks
 
