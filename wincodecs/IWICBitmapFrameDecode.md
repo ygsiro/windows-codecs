@@ -7,6 +7,7 @@ TOC:
   - name: GetColorContexts
   - name: GetMetadataQueryReader
   - name: GetThumbnail
+  - name: Related
 code:
   - key: IWICBitmapSource
   - key: IWICColorContext
@@ -113,3 +114,7 @@ Joint Photographic Experts Group (**JPEG**), Tagged Image File Format (**TIFF**)
 ### GetThumbnail - Note to Implementers
 
 If the codec does not support thumbnails, return **WINCODEC_ERROR_CODECNOTHUMBNAIL** rather than **E_NOTIMPL**.
+
+## Related
+
+- [IWICDdsDecoder::GetFrame](IWICDdsDecoder#getframe)

@@ -15,6 +15,7 @@ TOC:
   - name: SetThumbnail
   - name: WritePixels
   - name: WriteSource
+  - name: Related
 code:
   - key: IWICMetadataQueryWriter
   - key: IWICColorContext
@@ -375,3 +376,7 @@ Starting with Windows Vista, repeated WriteSource calls can be made as long as t
 
 Starting with Windows 8.1, the source rect must be at least the dimensions set through [SetSize](#setsize).
 If the source rect width exceeds the [SetSize](#setsize) width, extra pixels on the right side are ignored. If the source rect height exceeds the remaining unfilled height, extra scan lines on the bottom are ignored.
+
+## Related
+
+- [IWICDdsEncoder::CreateNewFrame](IWICDdsEncoder#createnewframe)
