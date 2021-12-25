@@ -13,6 +13,7 @@ TOC:
   - name: GetPixelFormat
   - name: GetSize
   - name: GetStride
+  - name: Related
 ---
 
 Exposes methods that support the Lock method.
@@ -119,3 +120,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 Note the stride value is specific to the **IWICBitmapLock**, not the bitmap.
 For example, two consecutive locks on the same rectangle of a bitmap may return different pointers and stride values, depending on internal implementation.
+
+## Related
+
+- [IWICBitmap::Lock](IWICBitmap#lock)
