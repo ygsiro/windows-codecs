@@ -11,6 +11,7 @@ TOC:
   - name: InitializeFromExifColorSpace
   - name: InitializeFromFilename
   - name: InitializeFromMemory
+  - name: Related
 code:
   - key: WICColorContextType
 ---
@@ -189,3 +190,7 @@ Otherwise, it returns an **HRESULT** error code.
 ### InitializeFromMemory - Remarks
 
 Once a color context has been initialized, it can't be re-initialized.
+
+## Related
+
+- [IWICImagingFactory::CreateColorContext](IWICImagingFactory#createcolorcontext)

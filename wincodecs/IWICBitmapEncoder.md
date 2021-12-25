@@ -23,6 +23,7 @@ TOC:
   - name: SetPalette
   - name: SetPreview
   - name: SetThumbnail
+  - name: Related
 ---
 
 Defines methods for setting an encoder's properties such as thumbnails, frames, and palettes.
@@ -309,3 +310,7 @@ Returns **WINCODEC_ERR_UNSUPPORTEDOPERATION** if the feature is not supported by
 [wif-c]: IWICImagingFactory#createencoder
 [wif]: IWICImagingFactory
 [wp]: IWICPalette
+
+## Related
+
+- [IWICImagingFactory::CreateEncoder](IWICImagingFactory#createencoder)

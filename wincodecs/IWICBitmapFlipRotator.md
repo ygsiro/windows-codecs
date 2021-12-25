@@ -8,6 +8,7 @@ code:
 TOC:
   - name: Inheritance
   - name: Initialize
+  - name: Related
 ---
 
 Exposes methods that produce a flipped (horizontal or vertical) and/or rotated (by 90 degree increments) bitmap source.
@@ -51,3 +52,7 @@ Otherwise, it returns an **HRESULT** error code.
 [wbtfo]: WICBitmapTransformOptions
 [wb]: IWICBitmap
 [wbs]: IWICBitmapSource
+
+## Related
+
+- [IWICImagingFactory::CreateBitmapFlipRotator](IWICImagingFactory#createbitmapfliprotator)

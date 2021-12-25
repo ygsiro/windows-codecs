@@ -22,7 +22,8 @@ Exposes methods that provide information about a particular codec.
 
 ## Inheritance
 
-The **IWICBitmapCodecInfo** interface inherits from [IWICComponentInfo][wci]. **IWICBitmapCodecInfo** also has these types of members:
+The **IWICBitmapCodecInfo** interface inherits from [IWICComponentInfo][wci].
+**IWICBitmapCodecInfo** also has these types of members:
 
 - [DoesSupportAnimation](#doessupportanimation)
 - [DoesSupportChromakey](#doessupportchromakey)

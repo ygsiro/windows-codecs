@@ -7,6 +7,7 @@ TOC:
   - name: Remarks
   - name: RemoveMetadataByName
   - name: SetMetadataByName
+  - name: Related
 ---
 
 Exposes methods for setting or removing metadata blocks and items to an encoder or its image frames using a metadata query expression.
@@ -79,3 +80,8 @@ For more information on the metadata query language, see the Metadata Query Lang
 
 If the value set is a nested metadata block then use variant type **VT_UNKNOWN** and *pvarValue* pointing to the **IWICMetadataQueryWriter** of the new metadata block.
 The ordering of metadata items is at the discretion of the query writer since relative locations are not specified.
+
+## Related
+
+- [IWICImagingFactory::CreateQueryWriter](IWICImagingFactory#createquerywriter)
+- [IWICImagingFactory::CreateQueryWriterFromReader](IWICImagingFactory#createquerywriterfromreader)

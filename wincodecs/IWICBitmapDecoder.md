@@ -23,6 +23,7 @@ TOC:
   - name: GetThumbnail
   - name: Initialize
   - name: QueryCapability
+  - name: Related
 ---
 
 Exposes methods that represent a decoder.
@@ -328,3 +329,10 @@ Custom decoder implementations should save the current position of the specified
 [wdo]: WICDecodeOptions
 [wbdc]: WICBitmapDecoderCapabilities
 [gmqr]: IWICBitmapFrameDecode#getmetadataqueryreader
+
+## Related
+
+- [IWICImagingFactory::CreateDecoder](IWICImagingFactory#createdecoder)
+- [IWICImagingFactory::CreateDecoderFromFileHandle](IWICImagingFactory#createdecoderfromfilehandle)
+- [IWICImagingFactory::CreateDecoderFromFilename](IWICImagingFactory#createdecoderfromfilename)
+- [IWICImagingFactory::CreateDecoderFromStream](IWICImagingFactory#createdecoderfromstream)

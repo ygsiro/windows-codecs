@@ -6,6 +6,7 @@ TOC:
   - name: Inheritance
   - name: CanConvert
   - name: Initialize
+  - name: Related
 code:
   - key: WICBitmapDitherType
   - key: IWICPalette
@@ -117,3 +118,7 @@ For instance, 9.8% implies that any pixel with an alpha value of less than 25 wi
 A value of 100% maps all pixels which are not fully opaque to the transparent color.
 Note that the palette should provide a transparent color.
 If it does not, the 'transparent' color will be the one closest to zero - often black.
+
+## Related
+
+- [IWICImagingFactory::CreateFormatConverter](IWICImagingFactory#createformatconverter)

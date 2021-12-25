@@ -9,6 +9,7 @@ TOC:
   - name: InitializeFromIStream
   - name: InitializeFromIStreamRegion
   - name: InitializeFromMemory
+  - name: Related
 code:
   - key: WICInProcPointer
 ---
@@ -146,3 +147,7 @@ A workaround for this behavior is to create an IStream and use [InitializeFromIS
 [ifis]: #initializefromistream
 
 If you require a growable memory stream, use CreateStreamOnHGlobal.
+
+## Related
+
+- [IWICImagingFactory::CreateStream](IWICImagingFactory#createstream)

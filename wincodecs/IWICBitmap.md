@@ -12,6 +12,7 @@ TOC:
   - name: Lock
   - name: SetPalette
   - name: SetResolution
+  - name: Related
 ---
 
 Defines methods that add the concept of writeability and static in-memory representations of bitmaps to [IWICBitmapSource][bs].
@@ -120,3 +121,12 @@ If the resolution is less than **REAL_EPSILON** (1.192092896e-07F) the error cod
 [bs]: IWICBitmapSource
 [bl]: IWICBitmapLock
 [cp]: IWICBitmapSource#copypixels
+
+## Related
+
+- [IWICBitmapFlipRotator](IWICBitmapFlipRotator)
+- [IWICBitmapLock](IWICBitmapLock)
+- [IWICBitmapSource](IWICBitmapSource)
+- [IWICImagingFactory::CreateBitmap](IWICImagingFactory#createbitmap)
+- [WICCreateBitmapFromSection](WICCreateBitmapFromSection)
+- [WICCreateBitmapFromSectionEx](WICCreateBitmapFromSectionEx)

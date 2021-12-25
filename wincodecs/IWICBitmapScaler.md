@@ -6,6 +6,7 @@ TOC:
   - name: Inheritance
   - name: Remarks
   - name: Initialize
+  - name: Related
 code:
   - key: IWICBitmapSource
   - key: WICBitmapInterpolationMode
@@ -71,3 +72,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 **IWICBitmapScaler** can't be initialized multiple times.
 For example, when scaling every frame in a multi-frame image, a new **IWICBitmapScaler** must be created and initialized for each frame.
+
+## Related
+
+- [IWICImagingFactory::CreateBitmapScaler](IWICImagingFactory#createbitmapscaler)

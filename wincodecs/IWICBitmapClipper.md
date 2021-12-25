@@ -8,6 +8,7 @@ code:
 TOC:
   - name: Inheritance
   - name: Initialize
+  - name: Related
 ---
 
 Exposes methods that produce a clipped version of the input bitmap for a specified rectangular region of interest.
@@ -41,3 +42,7 @@ If this method succeeds, it returns **S_OK**.
 Otherwise, it returns an **HRESULT** error code.
 
 [bs]: IWICBitmapSource
+
+## Related
+
+- [IWICImagingFactory::CreateBitmapClipper](IWICImagingFactory#createbitmapclipper)

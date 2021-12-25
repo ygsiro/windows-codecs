@@ -15,6 +15,7 @@ TOC:
   - name: InitializePredefined
   - name: IsBlackWhite
   - name: IsGrayscale
+  - name: Related
 ---
 
 Exposes methods for accessing and building a color table, primarily for indexed pixel formats.
@@ -293,3 +294,7 @@ Otherwise, it returns an **HRESULT** error code.
 ### IsGrayscale - Remarks
 
 A palette is considered grayscale only if, for every entry, the alpha value is 0xFF and the red, green and blue values match.
+
+## Related
+
+- [IWICImagingFactory::CreatePalette](IWICImagingFactory#createpalette)

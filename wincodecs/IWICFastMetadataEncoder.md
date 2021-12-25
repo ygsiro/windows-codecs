@@ -7,6 +7,7 @@ TOC:
   - name: Remarks
   - name: Commit
   - name: GetMetadataQueryWriter
+  - name: Related
 code:
   - key: IWICMetadataQueryWriter
 ---
@@ -72,3 +73,8 @@ HRESULT GetMetadataQueryWriter(
 
 If this method succeeds, it returns **S_OK**.
 Otherwise, it returns an **HRESULT** error code.
+
+## Related
+
+- [IWICImagingFactory::CreateFastMetadataEncoderFromDecoder](IWICImagingFactory#createfastmetadataencoderfromdecoder)
+- [IWICImagingFactory::CreateFastMetadataEncoderFromFrameDecode](IWICImagingFactory#createfastmetadataencoderfromframedecode)

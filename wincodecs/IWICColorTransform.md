@@ -6,6 +6,7 @@ TOC:
   - name: Inheritance
   - name: Remarks
   - name: Initialize
+  - name: Related
 code:
   - key: IWICBitmapSource
   - key: IWICColorContext
@@ -83,3 +84,7 @@ The currently supported formats for the _pIContextSource_ and _pixelFmtDest_ par
 
 In order to get correct behavior from a color transform, the input and output pixel formats must be compatible with the source and destination color profiles.
 For example, an sRGB destination color profile will produce incorrect results when used with a CMYK destination pixel format.
+
+## Related
+
+- [IWICImagingFactory::CreateColorTransformer](IWICImagingFactory#createcolortransformer)

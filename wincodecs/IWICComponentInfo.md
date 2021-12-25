@@ -12,6 +12,7 @@ TOC:
   - name: GetSpecVersion
   - name: GetVendorGUID
   - name: GetVersion
+  - name: Related
 code:
   - key: WICComponentType
 ---
@@ -238,3 +239,7 @@ Otherwise, it returns an **HRESULT** error code.
 All built-in components return "1.0.0.0", except for pixel formats, which do not have a version.
 
 If *cchAuthor* is 0 and *wzAuthor* is NULL, the required buffer size is returned in *pccchActual*.
+
+## Related
+
+- [IWICImagingFactory::CreateComponentInfo](IWICImagingFactory#createcomponentinfo)
