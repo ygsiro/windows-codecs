@@ -28,8 +28,8 @@ Instead, and use RegisterProgressNotification.
 
 ```cpp
 HRESULT Notify(
-    ULONG                uFrameNum, // [in]
-    WICProgressOperation operation, // [in]
+    ULONG                uFrameNum,  // [in]
+    WICProgressOperation operation,  // [in]
     double               dblProgress // [in]
 );
 ```

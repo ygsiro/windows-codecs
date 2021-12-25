@@ -4,13 +4,23 @@ category: Interface
 title: IWICMetadataQueryWriter
 TOC:
   - name: Inheritance
+  - name: Remarks
+  - name: RemoveMetadataByName
+  - name: SetMetadataByName
 ---
 
 Exposes methods for setting or removing metadata blocks and items to an encoder or its image frames using a metadata query expression.
 
 ## Inheritance
 
-The IWICMetadataQueryWriter interface inherits from IWICMetadataQueryReader. IWICMetadataQueryWriter also has these types of members:
+[wmqr]: IWICMetadataQueryReader
+
+The **IWICMetadataQueryWriter** interface inherits from [IWICMetadataQueryReader][wmqr].
+**IWICMetadataQueryWriter** also has these types of members:
+
+- [Remarks](#remarks)
+- [RemoveMetadataByName](#removemetadatabyname)
+- [SetMetadataByName](#setmetadatabyname)
 
 ## Remarks
 
@@ -32,11 +42,13 @@ HRESULT RemoveMetadataByName(
 
 ### RemoveMetadataByName - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### RemoveMetadataByName - Remarks
 
-RemoveMetadataByName uses metadata query expressions to remove metadata. For more information on the metadata query language, see the Metadata Query Language Overview.
+**RemoveMetadataByName** uses metadata query expressions to remove metadata.
+For more information on the metadata query language, see the Metadata Query Language Overview.
 
 If the metadata item is a metadata block, it is removed from the metadata hierarchy.
 
@@ -46,7 +58,7 @@ Sets a metadata item to a specific location.
 
 ```cpp
 HRESULT SetMetadataByName(
-    LPCWSTR           wzName, // [in]
+    LPCWSTR           wzName,    // [in]
     const PROPVARIANT *pvarValue // [in]
 );
 ```
@@ -58,11 +70,13 @@ HRESULT SetMetadataByName(
 
 ### SetMetadataByName - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+ Otherwise, it returns an **HRESULT** error code.
 
 ### SetMetadataByName - Remarks
 
-SetMetadataByName uses metadata query expressions to remove metadata. For more information on the metadata query language, see the Metadata Query Language Overview.
+**SetMetadataByName** uses metadata query expressions to remove metadata.
+For more information on the metadata query language, see the Metadata Query Language Overview.
 
-If the value set is a nested metadata block then use variant type VT_UNKNOWN and pvarValue pointing to the IWICMetadataQueryWriter of the new metadata block.
+If the value set is a nested metadata block then use variant type **VT_UNKNOWN** and *pvarValue* pointing to the **IWICMetadataQueryWriter** of the new metadata block.
 The ordering of metadata items is at the discretion of the query writer since relative locations are not specified.

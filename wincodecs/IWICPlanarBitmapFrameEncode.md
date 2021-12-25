@@ -4,6 +4,9 @@ category: Interface
 title: IWICPlanarBitmapFrameEncode
 TOC:
   - name: Inheritance
+  - name: Remarks
+  - name: WritePixels
+  - name: WriteSource
 ---
 
 Allows planar component image pixels to be written to an encoder.
@@ -15,11 +18,15 @@ You can use QueryInterface to obtain this interface from the Windows provided im
 
 ## Inheritance
 
-The **IWICPlanarBitmapFrameEncode** interface inherits from the IUnknown interface. **IWICPlanarBitmapFrameEncode** also has these types of members:
+The **IWICPlanarBitmapFrameEncode** interface inherits from the IUnknown interface.
+**IWICPlanarBitmapFrameEncode** also has these types of members:
+
+- [WritePixels](#writepixels)
+- [WriteSource](#writesource)
 
 ## Remarks
 
-Encoding YCbCr data using **IWICPlanarBitmapFrameEncode** is similar but not identical to encoding interleaved data using IWICBitmapFrameEncode.
+Encoding YCbCr data using **IWICPlanarBitmapFrameEncode** is similar but not identical to encoding interleaved data using [IWICBitmapFrameEncode][wbfe].
 The planar interface only exposes the ability to write planar frame image data, and you should continue to use the frame encode interface to set metadata or a thumbnail and to commit at the end of the operation.
 
 ## WritePixels
@@ -29,8 +36,8 @@ Writes lines from the source planes to the encoded format.
 ```cpp
 HRESULT WritePixels(
     UINT           lineCount, // [in]
-    WICBitmapPlane *pPlanes, // [in]
-    UINT           cPlanes // [in]
+    WICBitmapPlane *pPlanes,  // [in]
+    UINT           cPlanes    // [in]
 );
 ```
 
@@ -38,7 +45,7 @@ HRESULT WritePixels(
 
 1. _lineCount_ - The number of lines to encode. See the Remarks section for WIC Jpeg specific line count restrictions.
 2. _pPlanes_ - Specifies the source buffers for each component plane encoded.
-3. _cPlanes_ - The number of component planes specified by the pPlanes parameter.
+3. _cPlanes_ - The number of component planes specified by the *pPlanes* parameter.
 
 ### WritePixels - Return value
 
@@ -50,32 +57,38 @@ If the [IWICBitmapSource][wbs] format does not meet the encoder requirements, th
 
 ### WritePixels - Remarks
 
+[wbfe-i]: IWICBitmapFrameEncode#initialize
+[wbfe-ss]: IWICBitmapFrameEncode#setsize
+[wbfe-spf]: IWICBitmapFrameEncode#setpixelformat
+[wbe]: IWICBitmapEncoder
+[wbe-cnf]: IWICBitmapEncoder#createnewframe
+
 Successive WritePixels calls are assumed sequentially add scanlines to the output image.
-[IWICBitmapFrameEncode][wbfe]::Initialize, [IWICBitmapFrameEncode][wbfe]::SetSize and [IWICBitmapFrameEncode][wbfe]::SetPixelFormat must be called before this method or it will fail.
+[IWICBitmapFrameEncode][wbfe]::[Initialize][wbfe-i], [IWICBitmapFrameEncode][wbfe]::[SetSize][wbfe-ss] and [IWICBitmapFrameEncode][wbfe]::[SetPixelFormat][wbfe-spf] must be called before this method or it will fail.
 
-The interleaved pixel format set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat and the codec specific encode parameters determine the supported planar formats.
+The interleaved pixel format set via [IWICBitmapFrameEncode][wbfe]::[SetPixelFormat][wbfe-spf] and the codec specific encode parameters determine the supported planar formats.
 
-WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG [IWICBitmapFrameEncode][wbfe] implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and IWICBitmapEncoder::CreateNewFrame for more details.
+WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the WIC JPEG [IWICBitmapFrameEncode][wbfe] implementation. When using this method to encode Y’CbCr data with the WIC JPEG encoder, chroma subsampling can be configured with encoder options during frame creation. See the Encoding Overview and [IWICBitmapEncoder][wbe]::[CreateNewFrame][wbe-cnf] for more details.
 
 Depending upon the configured chroma subsampling, the lineCount parameter has the following restrictions:
 
-| Chroma Subsampling | Line Count Restriction                                               | Chroma Plane Width                               | Chroma Plane Height                                |
-| :----------------- | :------------------------------------------------------------------- | :----------------------------------------------- | :------------------------------------------------- |
-| 4:2:0              | Multiple of 2, unless the call covers the last scanline of the image | lumaWidth / 2 Rounded up to the nearest integer. | lumaHeight / 2 Rounded up to the nearest integer.  |
-| 4:2:2              | Any                                                                  | lumaWidth / 2 Rounded up to the nearest integer. | Any                                                |
-| 4:4:4              | Any                                                                  | Any                                              | Any                                                |
-| 4:4:0              | Multiple of 2, unless the call covers the last scanline of the image | Any                                              | llumaHeight / 2 Rounded up to the nearest integer. |
+| Chroma Subsampling | Line Count Restriction| Chroma Plane Width | Chroma Plane Height |
+| :----------------- | :---------------------| :----------------- | :------------------ |
+| 4:2:0 | Multiple of 2, unless the call covers the last scanline of the image | lumaWidth / 2 Rounded up to the nearest integer. | lumaHeight / 2 Rounded up to the nearest integer.  |
+| 4:2:2 | Any      | lumaWidth / 2 Rounded up to the nearest integer. | Any |
+| 4:4:4 | Any      | Any       | Any |
+| 4:4:0 | Multiple of 2, unless the call covers the last scanline of the image | Any       | llumaHeight / 2 Rounded up to the nearest integer. |
 
 The full scanline width must be encoded, and the width of the bitmap sources must match their planar configuration.
 
-Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat, it must be GUID_WICPixelFormat24bppBGR.
+Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::[SetPixelFormat][wbfe-spf], it must be **GUID_WICPixelFormat24bppBGR**.
 
 The supported pixel formats of the bitmap sources passed into this method are as follows:
 
 | Plane Count | Plane 1                  | Plane 2                      | Plane 3                   |
 | :---------- | :----------------------- | :--------------------------- | :------------------------ |
-| 3           | GUID_WICPixelFormat8bppY | GUID_WICPixelFormat8bppCb    | GUID_WICPixelFormat8bppCr |
-| 2           | GUID_WICPixelFormat8bppY | GUID_WICPixelFormat16bppCbCr | N/A                       |
+| 3           | **GUID_WICPixelFormat8bppY** | **GUID_WICPixelFormat8bppCb**    | **GUID_WICPixelFormat8bppCr** |
+| 2           | **GUID_WICPixelFormat8bppY** | **GUID_WICPixelFormat16bppCbCr** | N/A                       |
 
 ## WriteSource
 
@@ -91,9 +104,12 @@ HRESULT WriteSource(
 
 ### WriteSource - Parameter
 
-1. _ppPlanes_ - Specifies an array of IWICBitmapSource that represent image planes.
+1. _ppPlanes_ - Specifies an array of [IWICBitmapSource][wbs] that represent image planes.
 2. _cPlanes_ - The number of component planes specified by the planes parameter.
-3. _prcSource_ - The source rectangle of pixels to encode from the IWICBitmapSource planes. Null indicates the entire source. The source rect width must match the width set through SetSize. Repeated WriteSource calls can be made as long as the total accumulated source rect height is the same as set through SetSize.
+3. _prcSource_ - The source rectangle of pixels to encode from the [IWICBitmapSource][wbs] planes.
+   **Null** indicates the entire source.
+   The source rect width must match the width set through SetSize.
+   Repeated **WriteSource** calls can be made as long as the total accumulated source rect height is the same as set through SetSize.
 
 ### WriteSource - Return value
 
@@ -111,20 +127,20 @@ WIC JPEG Encoder: QueryInterface can be used to obtain this interface from the W
 
 Depending upon the configured chroma subsampling, the lineCount parameter has the following restrictions:
 
-| Chroma Subsampling | X Coordinate  | Y Coordinate  | Chroma Width                                     | Chroma Height                                      |
-| :----------------- | :------------ | :------------ | :----------------------------------------------- | -------------------------------------------------- |
-| 4:2:0              | Multiple of 2 | Multiple of 2 | lumaWidth / 2 Rounded up to the nearest integer. | lumaHeight / 2 Rounded up to the nearest integer.  |
-| 4:2:2              | Multiple of 2 | Any           | lumaWidth / 2 Rounded up to the nearest integer. | Any                                                |
-| 4:4:4              | Any           | Any           | Any                                              | Any                                                |
-| 4:4:0              | Any           | Multiple of 2 | lumaWidth                                        | llumaHeight / 2 Rounded up to the nearest integer. |
+| Chroma Subsampling | X Coordinate  | Y Coordinate  | Chroma Width | Chroma Height |
+| :----------------- | :------------ | :------------ | :----------- | ------------- |
+| 4:2:0 | Multiple of 2 | Multiple of 2 | lumaWidth / 2 Rounded up to the nearest integer. | lumaHeight / 2 Rounded up to the nearest integer.  |
+| 4:2:2 | Multiple of 2 | Any           | lumaWidth / 2 Rounded up to the nearest integer. | Any |
+| 4:4:4 | Any           | Any           | Any       | Any |
+| 4:4:0 | Any           | Multiple of 2 | lumaWidth | llumaHeight / 2 Rounded up to the nearest integer. |
 
 The full scanline width must be encoded, and the width of the bitmap sources must match their planar configuration.
 
-Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::SetPixelFormat, it must be **GUID_WICPixelFormat24bppBGR**.
+Additionally, if a pixel format is set via [IWICBitmapFrameEncode][wbfe]::[SetPixelFormat][wbfe-spf], it must be **GUID_WICPixelFormat24bppBGR**.
 
 The supported pixel formats of the bitmap sources passed into this method are as follows:
 
 | Plane Count | Plane 1                  | Plane 2                      | Plane 3                   |
 | :---------- | :----------------------- | :--------------------------- | :------------------------ |
-| 3           | GUID_WICPixelFormat8bppY | GUID_WICPixelFormat8bppCb    | GUID_WICPixelFormat8bppCr |
-| 2           | GUID_WICPixelFormat8bppY | GUID_WICPixelFormat16bppCbCr | N/A                       |
+| 3           | **GUID_WICPixelFormat8bppY** | **GUID_WICPixelFormat8bppCb**    | **GUID_WICPixelFormat8bppCr** |
+| 2           | **GUID_WICPixelFormat8bppY** | **GUID_WICPixelFormat16bppCbCr** | N/A                       |

@@ -4,21 +4,50 @@ category: Interface
 title: IWICPalette
 TOC:
   - name: Inheritance
+  - name: Remarks
+  - name: GetColorCount
+  - name: GetColors
+  - name: GetType
+  - name: HasAlpha
+  - name: InitializeCustom
+  - name: InitializeFromBitmap
+  - name: InitializeFromPalette
+  - name: InitializePredefined
+  - name: IsBlackWhite
+  - name: IsGrayscale
 ---
 
 Exposes methods for accessing and building a color table, primarily for indexed pixel formats.
 
 ## Inheritance
 
-The IWICPalette interface inherits from the IUnknown interface. IWICPalette also has these types of members:
+The **IWICPalette** interface inherits from the IUnknown interface.
+**IWICPalette** also has these types of members:
+
+- [GetColorCount](#getcolorcount)
+- [GetColors](#getcolors)
+- [GetType](#gettype)
+- [HasAlpha](#hasalpha)
+- [InitializeCustom](#initializecustom)
+- [InitializeFromBitmap](#initializefrombitmap)
+- [InitializeFromPalette](#initializefrompalette)
+- [InitializePredefined](#initializepredefined)
+- [IsBlackWhite](#isblackwhite)
+- [IsGrayscale](#isgrayscale)
 
 ## Remarks
 
-If the WICBitmapPaletteType is not WICBitmapPaletteCustom, then the colors are automatically generated based on the table above. If the user subsequently changes a color palette entry the WICBitmapPalette is set to Custom by that action.
+[wbpc]: WICBitmapPaletteType
 
-InitializeFromBitmap's fAddTransparentColor parameter will add a transparent color to the end of the color collection if its size if less than 256, otherwise index 255 will be replaced with the transparent color. If a pre-defined palette type is used, it will change to BitmapPaletteTypeCustom since it no longer matches the predefined palette.
+If the [WICBitmapPaletteType][wbpc] is not [WICBitmapPaletteCustom][wbpc], then the colors are automatically generated based on the table above.
+If the user subsequently changes a color palette entry the [WICBitmapPalette][wbpc] is set to Custom by that action.
 
-The palette interface is an auxiliary imaging interface in that it does not directly concern bitmaps and pixels; rather it provides indexed color translation for indexed bitmaps. For an indexed pixel format with M bits per pixels: (The number of colors in the palette) greater than 2^M.
+InitializeFromBitmap's fAddTransparentColor parameter will add a transparent color to the end of the color collection if its size if less than 256, otherwise index 255 will be replaced with the transparent color.
+If a pre-defined palette type is used, it will change to BitmapPaletteTypeCustom since it no longer matches the predefined palette.
+
+The palette interface is an auxiliary imaging interface in that it does not directly concern bitmaps and pixels;
+rather it provides indexed color translation for indexed bitmaps.
+For an indexed pixel format with M bits per pixels: (The number of colors in the palette) greater than 2^M.
 
 Traditionally the basic operation of the palette is to provide a translation from a byte (or smaller) index into a 32bpp color value. This is often accomplished by a 256 entry table of color values.
 
@@ -38,11 +67,13 @@ HRESULT GetColorCount(
 
 ### GetColorCount - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetColors
 
-Fills out the supplied color array with the colors from the internal color table. The color array should be sized according to the return results from GetColorCount.
+Fills out the supplied color array with the colors from the internal color table.
+The color array should be sized according to the return results from GetColorCount.
 
 ```cpp
 HRESULT GetColors(
@@ -60,11 +91,12 @@ HRESULT GetColors(
 
 ### GetColors - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## GetType
 
-Retrieves the WICBitmapPaletteType that describes the palette.
+Retrieves the [WICBitmapPaletteType][wbpc] that describes the palette.
 
 ```cpp
 HRESULT GetType(
@@ -78,11 +110,13 @@ HRESULT GetType(
 
 ### GetType - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### GetType - Remarks
 
-WICBitmapPaletteCustom is used for palettes initialized from both InitializeCustom and InitializeFromBitmap. There is no distinction is made between optimized and custom palettes.
+[WICBitmapPaletteCustom][wbpc] is used for palettes initialized from both [InitializeCustom](#initializecustom) and [InitializeFromBitmap](#initializefrombitmap).
+There is no distinction is made between optimized and custom palettes.
 
 ## HasAlpha
 
@@ -96,7 +130,7 @@ HRESULT HasAlpha(
 
 ### HasAlpha - Parameter
 
-1. *pfHasAlpha* - Pointer that receives TRUE if the palette contains a transparent color; otherwise, FALSE.
+1. *pfHasAlpha* - Pointer that receives **TRUE** if the palette contains a transparent color; otherwise, **FALSE**.
 
 ### HasAlpha - Return value
 
@@ -104,7 +138,10 @@ If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT
 
 ### HasAlpha - Remarks
 
-Various image formats support alpha in different ways. PNG has full alpha support by supporting partially transparent palette entries. GIF stores colors as 24bpp, without alpha, but allows one palette entry to be specified as fully transparent. If a palette has multiple fully transparent entries (0x00RRGGBB), GIF will use the last one as its transparent index.
+Various image formats support alpha in different ways.
+PNG has full alpha support by supporting partially transparent palette entries.
+GIF stores colors as 24bpp, without alpha, but allows one palette entry to be specified as fully transparent.
+If a palette has multiple fully transparent entries (0x00RRGGBB), GIF will use the last one as its transparent index.
 
 ## InitializeCustom
 
@@ -113,7 +150,7 @@ Initializes a palette to the custom color entries provided.
 ```cpp
 HRESULT InitializeCustom(
     WICColor *pColors, // [in]
-    UINT     cCount // [in]
+    UINT     cCount    // [in]
 );
 ```
 
@@ -124,11 +161,13 @@ HRESULT InitializeCustom(
 
 ### InitializeCustom - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializeCustom - Remarks
 
-If a transparent color is required, provide it as part of the custom entries. To add a transparent value to the palette, its alpha value must be 0 (0x00RRGGBB).
+If a transparent color is required, provide it as part of the custom entries.
+To add a transparent value to the palette, its alpha value must be 0 (0x00RRGGBB).
 
 The entry count is limited to 256.
 
@@ -138,8 +177,8 @@ Initializes a palette using a computed optimized values based on the reference b
 
 ```cpp
 HRESULT InitializeFromBitmap(
-    IWICBitmapSource *pISurface, // [in]
-    UINT             cCount, // [in]
+    IWICBitmapSource *pISurface,          // [in]
+    UINT             cCount,              // [in]
     BOOL             fAddTransparentColor // [in]
 );
 ```
@@ -152,11 +191,14 @@ HRESULT InitializeFromBitmap(
 
 ### InitializeFromBitmap - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializeFromBitmap - Remarks
 
-The resulting palette contains the specified number of colors which best represent the colors present in the bitmap. The algorithm operates on the opaque RGB color value of each pixel in the reference bitmap and hence ignores any alpha values. If a transparent color is required, set the fAddTransparentColor parameter to TRUE and one fewer optimized color will be computed, reducing the colorCount, and a fully transparent color entry will be added.
+The resulting palette contains the specified number of colors which best represent the colors present in the bitmap.
+The algorithm operates on the opaque RGB color value of each pixel in the reference bitmap and hence ignores any alpha values.
+If a transparent color is required, set the *fAddTransparentColor* parameter to TRUE and one fewer optimized color will be computed, reducing the colorCount, and a fully transparent color entry will be added.
 
 ## InitializeFromPalette
 
@@ -164,7 +206,7 @@ Initialize the palette based on a given palette.
 
 ```cpp
 HRESULT InitializeFromPalette(
-    IWICPalette *pIPalette // [in]
+    **IWICPalette** *pIPalette // [in]
 );
 ```
 
@@ -174,15 +216,16 @@ HRESULT InitializeFromPalette(
 
 ### InitializeFromPalette - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ## InitializePredefined
 
-Initializes the palette to one of the pre-defined palettes specified by WICBitmapPaletteType and optionally adds a transparent color.
+Initializes the palette to one of the pre-defined palettes specified by [WICBitmapPaletteType][wbpc] and optionally adds a transparent color.
 
 ```cpp
 HRESULT InitializePredefined(
-    WICBitmapPaletteType ePaletteType, // [in]
+    WICBitmapPaletteType ePaletteType,        // [in]
     BOOL                 fAddTransparentColor // [in]
 );
 ```
@@ -190,15 +233,20 @@ HRESULT InitializePredefined(
 ### InitializePredefined - Parameter
 
 1. *ePaletteType* - The desired pre-defined palette type.
-2. *fAddTransparentColor* - The optional transparent color to add to the palette. If no transparent color is needed, use 0. When initializing to a grayscale or black and white palette, set this parameter to FALSE.
+2. *fAddTransparentColor* - The optional transparent color to add to the palette.
+   If no transparent color is needed, use 0.
+   When initializing to a grayscale or black and white palette, set this parameter to **FALSE**.
 
 ### InitializePredefined - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### InitializePredefined - Remarks
 
-If a transparent color is added to a palette, the palette is no longer predefined and is returned as WICBitmapPaletteTypeCustom. For palettes with less than 256 entries, the transparent entry is added to the end of the palette (that is, a 16-color palette becomes a 17-color palette). For palettes with 256 colors, the transparent palette entry will replace the last entry in the pre-defined palette.
+If a transparent color is added to a palette, the palette is no longer predefined and is returned as [WICBitmapPaletteTypeCustom][wbpc].
+For palettes with less than 256 entries, the transparent entry is added to the end of the palette (that is, a 16-color palette becomes a 17-color palette).
+For palettes with 256 colors, the transparent palette entry will replace the last entry in the pre-defined palette.
 
 ## IsBlackWhite
 
@@ -212,7 +260,7 @@ HRESULT IsBlackWhite(
 
 ### IsBlackWhite - Parameter
 
-1. *pfIsBlackWhite* - A pointer to a variable that receives a boolean value that indicates whether the palette is black and white. TRUE indicates that the palette is black and white; otherwise, FALSE.
+1. *pfIsBlackWhite* - A pointer to a variable that receives a boolean value that indicates whether the palette is black and white. **TRUE** indicates that the palette is black and white; otherwise, **FALSE**.
 
 ### IsBlackWhite - Return value
 
@@ -234,11 +282,13 @@ HRESULT IsGrayscale(
 
 ### IsGrayscale - Parameter
 
-1. *pfIsGrayscale* - A pointer to a variable that receives a boolean value that indicates whether the palette is grayscale. TRUE indicates that the palette is grayscale; otherwise FALSE.
+1. *pfIsGrayscale* - A pointer to a variable that receives a boolean value that indicates whether the palette is grayscale.
+   **TRUE** indicates that the palette is grayscale; otherwise **FALSE**.
 
 ### IsGrayscale - Return value
 
-If this method succeeds, it returns **S_OK**. Otherwise, it returns an **HRESULT** error code.
+If this method succeeds, it returns **S_OK**.
+Otherwise, it returns an **HRESULT** error code.
 
 ### IsGrayscale - Remarks
 

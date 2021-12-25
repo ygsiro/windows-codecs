@@ -4,8 +4,8 @@ category: Interface
 title: IWICPlanarFormatConverter
 TOC:
   - name: Inheritance
-  - name: Initialize
   - name: CanConvert
+  - name: Initialize
 code:
   - key: WICBitmapDitherType
   - key: IWICBitmapSource
@@ -20,6 +20,9 @@ Allows a format converter to be initialized with a planar source.
 The **IWICPlanarFormatConverter** interface inherits from [IWICBitmapSource][wbs].
 **IWICPlanarFormatConverter** also has these types of members:
 
+- [CanConvert](#canconvert)
+- [Initialize](#initialize)
+
 [wbs]: IWICBitmapSource
 
 ## CanConvert
@@ -29,9 +32,9 @@ Query if the format converter can convert from one format to another.
 ```cpp
 HRESULT CanConvert(
     const WICPixelFormatGUID *pSrcPixelFormats, // [in]
-    UINT                     cSrcPlanes, // [in]
-    REFWICPixelFormatGUID    dstPixelFormat, // [in]
-    BOOL                     *pfCanConvert // [out]
+    UINT                     cSrcPlanes,        // [in]
+    REFWICPixelFormatGUID    dstPixelFormat,    // [in]
+    BOOL                     *pfCanConvert      // [out]
 );
 ```
 
@@ -58,13 +61,13 @@ Initializes a format converter with a planar source, and specifies the interleav
 
 ```cpp
 HRESULT Initialize(
-    IWICBitmapSource      **ppPlanes, // [in]
-    UINT                  cPlanes, // [in]
-    REFWICPixelFormatGUID dstFormat, // [in]
-    WICBitmapDitherType   dither, // [in]
-    IWICPalette           *pIPalette, // [in]
+    IWICBitmapSource      **ppPlanes,            // [in]
+    UINT                  cPlanes,               // [in]
+    REFWICPixelFormatGUID dstFormat,             // [in]
+    WICBitmapDitherType   dither,                // [in]
+    IWICPalette           *pIPalette,            // [in]
     double                alphaThresholdPercent, // [in]
-    WICBitmapPaletteType  paletteTranslate // [in]
+    WICBitmapPaletteType  paletteTranslate       // [in]
 );
 ```
 
