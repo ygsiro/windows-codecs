@@ -40,8 +40,8 @@ The component identifiers.
 The format of the quantization table indices.
 Use one of the following constants, described in [IWICJpegFrameDecode][wjfd] Constants.
 
-+ **WIC_JPEG_HUFFMAN_BASELINE_ONE**
-+ **WIC_JPEG_HUFFMAN_BASELINE_THREE**
+- **WIC_JPEG_HUFFMAN_BASELINE_ONE**
+- **WIC_JPEG_HUFFMAN_BASELINE_THREE**
 
 ### StartSpectralSelection
 
@@ -64,3 +64,7 @@ The successive approximation low.
 [wjfd-gsh]: IWICJpegFrameDecode#getscanheader
 
 Get the scan header for an image by calling [IWICJpegFrameDecode][wjfd]::[GetScanHeader][wjfd].
+
+## Related
+
+- [IWICJpegFrameDecode::GetScanHeader](IWICJpegFrameDecode#getscanheader)

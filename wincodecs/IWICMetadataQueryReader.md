@@ -9,6 +9,7 @@ TOC:
   - name: GetEnumerator
   - name: GetLocation
   - name: GetMetadataByName
+  - name: Related
 ---
 
 Exposes methods for retrieving metadata blocks and items from a decoder or its image frames using a metadata query expression.
@@ -136,3 +137,7 @@ Otherwise, it returns an **HRESULT** error code.
 For more information on the metadata query language, see the Metadata Query Language Overview.
 
 If multiple blocks or items exist that are expressed by the same query expression, the first metadata block or item found will be returned.
+
+## Related
+
+- [IWICBitmapDecoder::GetMetadataQueryReader](IWICBitmapDecoder#getmetadataqueryreader)

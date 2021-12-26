@@ -15,6 +15,7 @@ TOC:
   - name: SetIndexing
 code:
   - key: WICJpegIndexingOptions
+  - key: WICJpegScanHeader
 ---
 
 Exposes methods for decoding JPEG images.

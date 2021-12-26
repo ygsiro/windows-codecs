@@ -27,3 +27,7 @@ Component width of the plane.
 ### Height
 
 Component height of the plane.
+
+## Related
+
+- [IWICPlanarBitmapSourceTransform::DoesSupportTransform](IWICPlanarBitmapSourceTransform#doessupporttransform)

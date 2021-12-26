@@ -118,3 +118,4 @@ If the codec does not support thumbnails, return **WINCODEC_ERROR_CODECNOTHUMBNA
 ## Related
 
 - [IWICDdsDecoder::GetFrame](IWICDdsDecoder#getframe)
+- [IWICBitmapDecoder::GetFrame](IWICBitmapDecoder#getframe)

@@ -7,6 +7,7 @@ TOC:
   - name: WriteFrame
   - name: WriteFrameThumbnail
   - name: WriteThumbnail
+  - name: Related
 code:
   - key: IWICBitmapFrameEncode
   - key: WICImageParameters
@@ -122,3 +123,7 @@ For info about these defaults, see [WICImageParameters][wip].
 Before you call **WriteThumbnail**, you must set up the [IWICBitmapEncoder][wbe] interface for the encoder on which you want to set the thumbnail.
 
 If **WriteThumbnail** fails, it might return **E_OUTOFMEMORY**, **D2DERR_WRONG_RESOURCE_DOMAIN**, or other error codes from the encoder.
+
+## Related
+
+- [IWICImagingFactory2::CreateImageEncoder](IWICImagingFactory2#createimageencoder)

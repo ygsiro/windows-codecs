@@ -8,6 +8,7 @@ TOC:
   - name: CreateInstance
   - name: GetPatterns
   - name: MatchesPattern
+  - name: Related
 ---
 
 Exposes methods that provide information about a decoder.
@@ -95,3 +96,7 @@ Otherwise, it returns an **HRESULT** error code.
 [wbd]: IWICBitmapDecoder
 [wbp]: WICBitmapPattern
 [wbci]: IWICBitmapCodecInfo
+
+## Related
+
+- [IWICBitmapDecoder::GetDecoderInfo](IWICBitmapDecoder#getdecoderinfo)

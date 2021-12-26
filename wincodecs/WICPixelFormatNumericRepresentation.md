@@ -41,3 +41,7 @@ Specifies that the format is represented as a fixed-point number.
 ## WICPixelFormatNumericRepresentationFloat
 
 Specifies that the format is represented as a floating-point number.
+
+## Related
+
+- [IWICPixelFormatInfo2::GetNumericRepresentation](IWICPixelFormatInfo2#getnumericrepresentation)

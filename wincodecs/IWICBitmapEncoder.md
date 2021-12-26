@@ -149,7 +149,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 ## GetEncoderInfo
 
-Retrieves an [IWICBitmapEncoderInfo](wbei) for the encoder.
+Retrieves an [IWICBitmapEncoderInfo][wbei] for the encoder.
 
 ```cpp
 HRESULT GetEncoderInfo(
@@ -314,3 +314,4 @@ Returns **WINCODEC_ERR_UNSUPPORTEDOPERATION** if the feature is not supported by
 ## Related
 
 - [IWICImagingFactory::CreateEncoder](IWICImagingFactory#createencoder)
+- [IWICBitmapEncoderInfo::CreateInstance](IWICBitmapEncoderInfo#createinstance)

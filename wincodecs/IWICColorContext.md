@@ -194,3 +194,5 @@ Once a color context has been initialized, it can't be re-initialized.
 ## Related
 
 - [IWICImagingFactory::CreateColorContext](IWICImagingFactory#createcolorcontext)
+- [IWICBitmapDecoder::GetColorContexts](IWICBitmapDecoder#getcolorcontexts)
+- [IWICPixelFormatInfo::GetColorContext](IWICPixelFormatInfo#getcolorcontext)

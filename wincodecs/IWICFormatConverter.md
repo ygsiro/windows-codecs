@@ -122,3 +122,4 @@ If it does not, the 'transparent' color will be the one closest to zero - often 
 ## Related
 
 - [IWICImagingFactory::CreateFormatConverter](IWICImagingFactory#createformatconverter)
+- [IWICFormatConverterInfo::CreateInstance](IWICFormatConverterInfo#createinstance)

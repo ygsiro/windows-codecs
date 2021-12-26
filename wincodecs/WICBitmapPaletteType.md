@@ -81,3 +81,7 @@ A palette that has 16 shades of gray.
 ## WICBitmapPaletteTypeFixedGray256
 
 A palette that has 256 shades of gray.
+
+## Related
+
+- [IWICPalette::GetType](IWICPalette#gettype)

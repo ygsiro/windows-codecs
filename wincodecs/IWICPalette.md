@@ -16,6 +16,8 @@ TOC:
   - name: IsBlackWhite
   - name: IsGrayscale
   - name: Related
+code:
+  - key: WICColor
 ---
 
 Exposes methods for accessing and building a color table, primarily for indexed pixel formats.
