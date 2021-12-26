@@ -14,6 +14,7 @@ TOC:
   - name: GetPixelFormat
   - name: GetResolution
   - name: GetSize
+  - name: Related
 ---
 
 Exposes methods that refers to a source from which pixels are retrieved, but cannot be written back to.
@@ -188,3 +189,11 @@ Otherwise, it returns an **HRESULT** error code.
 [b]: IWICBitmap
 [wp]: IWICPalette
 [wbfd]: IWICBitmapFrameDecode
+
+## Related
+
+- [IWICBitmapDecoder::GetThumbnail](IWICBitmapDecoder#getthumbnail)
+- [IWICBitmapDecoder::GetPreview](IWICBitmapDecoder#getpreview)
+- [IWICBitmapFrameDecode::GetThumbnail](IWICBitmapFrameDecode#getthumbnail)
+- [IWICBitmapFrameDecode::GetPreview](IWICBitmapFrameDecode#getpreview)
+- [WICConvertBitmapSource](WICConvertBitmapSource)
