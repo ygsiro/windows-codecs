@@ -51,7 +51,7 @@ Otherwise, it returns an **HRESULT** error code.
 ### GetCurrentLevel - Remarks
 
 The level always defaults to the highest progressive level.
-In order to decode a lower progressive level, SetCurrentLevel must first be called.
+In order to decode a lower progressive level, [SetCurrentLevel](#setcurrentlevel) must first be called.
 
 ## GetLevelCount
 

@@ -72,5 +72,5 @@ The format converter does not necessarily guarantee symmetricality with respect 
 that is, a converter may be able to convert FROM a particular format without actually being able to convert TO a particular format.
 In order to test symmetricality, use CanConvert.
 
-To determine the number of pixel formats a converter can handle, set cFormats to 0 and *pPixelFormatGUIDs* to **NULL**.
+To determine the number of pixel formats a converter can handle, set *cFormats* to 0 and *pPixelFormatGUIDs* to **NULL**.
 The converter will fill *pcActual* with the number of formats supported by that converter.

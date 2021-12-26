@@ -226,7 +226,7 @@ Otherwise, it returns an **HRESULT** error code.
 
 The usage pattern for this method is a two call process. The first call retrieves the buffer size needed to retrieve the full color management version number by calling it with _cchDeviceModels_ set to 0 and _wzDeviceModels_ set to **NULL**.
 This call sets _pcchActual_ to the buffer size needed.
-Once the needed buffer size is determined, a second GetDeviceModels call with _cchDeviceModels_ set to the buffer size and _wzDeviceModels_ set to a buffer of the appropriate size will retrieve the pixel formats.
+Once the needed buffer size is determined, a second **GetDeviceModels** call with _cchDeviceModels_ set to the buffer size and _wzDeviceModels_ set to a buffer of the appropriate size will retrieve the pixel formats.
 
 ## GetFileExtensions
 
@@ -290,7 +290,7 @@ Otherwise, it returns an **HRESULT** error code.
 ### GetMimeTypes - Remarks
 
 The usage pattern for this method is a two call process.
-The first call retrieves the buffer size needed to retrieve the full color management version number by calling it with _cchMimeTypes_ set to 0 and _wzMimeTypes_ set to NULL.
+The first call retrieves the buffer size needed to retrieve the full color management version number by calling it with _cchMimeTypes_ set to 0 and _wzMimeTypes_ set to **NULL**.
 This call sets _pcchActual_ to the buffer size needed.
 Once the needed buffer size is determined, a second **GetMimeTypes** call with _cchMimeTypes_ set to the buffer size and _wzMimeTypes_ set to a buffer of the appropriate size will retrieve the pixel formats.
 
@@ -308,7 +308,7 @@ HRESULT GetPixelFormats(
 
 ### GetPixelFormats - Parameters
 
-1. _cFormats_ - The size of the pguidPixelFormats array.
+1. _cFormats_ - The size of the *pguidPixelFormats* array.
    Use 0 on first call to determine the needed array size.
 2. _pguidPixelFormats_ - Receives the supported pixel formats.
    Use NULL on first call to determine needed array size.
@@ -322,7 +322,7 @@ Otherwise, it returns an **HRESULT** error code.
 ### GetPixelFormats - Remarks
 
 The usage pattern for this method is a two call process.
-The first call retrieves the array size needed to retrieve all the supported pixel formats by calling it with cFormats set to 0 and _pguidPixelFormats_ set to **NULL**.
+The first call retrieves the array size needed to retrieve all the supported pixel formats by calling it with *cFormats* set to 0 and _pguidPixelFormats_ set to **NULL**.
 This call sets _pcActual_ to the array size needed.
 Once the needed array size is determined, a second **GetPixelFormats** call with _pguidPixelFormats_ set to an array of the appropriate size will retrieve the pixel formats.
 

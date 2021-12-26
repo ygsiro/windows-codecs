@@ -31,7 +31,8 @@ The **IWICBitmap** interface inherits from [IWICBitmapSource][bs].
 **IWICBitmap** inherits from [IWICBitmapSource][bs] and therefore also inherits the [CopyPixels][cp] method.
 When pixels need to be moved to a new memory location, [CopyPixels][cp] is often the most efficient.
 
-Because of the internal memory representation implied by the **IWICBitmap**, in-place modification and processing using the Lock is more efficient than [CopyPixels][cp], usually reducing to a simple pointer access directly into the memory owned by the bitmap rather than a copy. This is contrasted to procedural bitmaps which implement only [CopyPixels][cp] because there is no internal memory representation and one would need to be created on demand to satisfy a call to [Lock](#lock).
+Because of the internal memory representation implied by the **IWICBitmap**, in-place modification and processing using the Lock is more efficient than [CopyPixels][cp], usually reducing to a simple pointer access directly into the memory owned by the bitmap rather than a copy.
+This is contrasted to procedural bitmaps which implement only [CopyPixels][cp] because there is no internal memory representation and one would need to be created on demand to satisfy a call to [Lock](#lock).
 
 ## Lock
 
@@ -48,7 +49,7 @@ HRESULT Lock(
 ### Lock - Parameters
 
 1. _prcLock_ - The rectangle to be accessed.
-2. _flag_ - The access mode you wish to obtain for the lock.  
+2. _flag_ - The access mode you wish to obtain for the lock.
    This is a bitwise combination of [WICBitmapLockFlags][blf] for read, write, or read and write access.
 
    | Value                  | Meaning               |
