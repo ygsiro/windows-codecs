@@ -3,8 +3,8 @@ email: entoyukari@gmail.com
 description: >- 
   Windows codecs.
   japan
-baseurl: ""
-url: ""
+baseurl: "https://ygsiro.github.io/windows-codecs"
+url: "https://ygsiro.github.io"
 twitter_username: yg_siro
 github_username:  ygsiro
 
