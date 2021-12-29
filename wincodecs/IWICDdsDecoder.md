@@ -35,9 +35,9 @@ Retrieves the specified frame of the DDS image.
 
 ```cpp
 HRESULT GetFrame(
-   UINT                  arrayIndex, // [in]
-   UINT                  mipLevel, // [in]
-   UINT                  sliceIndex, // [in]
+   UINT                  arrayIndex,      // [in]
+   UINT                  mipLevel,        // [in]
+   UINT                  sliceIndex,      // [in]
    IWICBitmapFrameDecode **ppIBitmapFrame // [out]
 );
 ```

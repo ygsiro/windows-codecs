@@ -33,7 +33,7 @@ Determines if the source pixel format can be converted to the destination pixel 
 HRESULT CanConvert(
    REFWICPixelFormatGUID srcPixelFormat, // [in]
    REFWICPixelFormatGUID dstPixelFormat, // [in]
-   BOOL                  *pfCanConvert // [out]
+   BOOL                  *pfCanConvert   // [out]
 );
 ```
 

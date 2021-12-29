@@ -39,10 +39,10 @@ Initializes an **IWICColorTransform** with a [IWICBitmapSource][wbs] and transfo
 
 ```cpp
 HRESULT Initialize(
-   IWICBitmapSource      *pIBitmapSource, // [in]
+   IWICBitmapSource      *pIBitmapSource,  // [in]
    IWICColorContext      *pIContextSource, // [in]
-   IWICColorContext      *pIContextDest, // [in]
-   REFWICPixelFormatGUID pixelFmtDest // [in]
+   IWICColorContext      *pIContextDest,   // [in]
+   REFWICPixelFormatGUID pixelFmtDest      // [in]
 );
 ```
 

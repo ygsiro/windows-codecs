@@ -37,9 +37,9 @@ Requests pixel data as it is natively stored within the DDS file.
 ```cpp
 HRESULT CopyBlocks(
    const WICRect *prcBoundsInBlocks, // [in]
-   UINT          cbStride, // [in]
-   UINT          cbBufferSize, // [in]
-   BYTE          *pbBuffer // [out]
+   UINT          cbStride,           // [in]
+   UINT          cbBufferSize,       // [in]
+   BYTE          *pbBuffer           // [out]
 );
 ```
 

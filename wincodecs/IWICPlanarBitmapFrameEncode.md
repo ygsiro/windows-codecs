@@ -97,8 +97,8 @@ Writes lines from the source planes to the encoded format.
 ```cpp
 HRESULT WriteSource(
     IWICBitmapSource **ppPlanes, // [in]
-    UINT             cPlanes, // [in]
-    WICRect          *prcSource // [in]
+    UINT             cPlanes,    // [in]
+    WICRect          *prcSource  // [in]
 );
 ```
 

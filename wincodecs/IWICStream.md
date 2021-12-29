@@ -123,7 +123,7 @@ The stream cannot grow beyond the buffer size.
 
 ```cpp
 HRESULT InitializeFromMemory(
-    WICInProcPointer pbBuffer, // [in]
+    WICInProcPointer pbBuffer,    // [in]
     DWORD            cbBufferSize // [in]
 );
 ```

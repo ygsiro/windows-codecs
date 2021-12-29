@@ -172,8 +172,8 @@ Gets the information about the current Kelvin range of the raw image.
 
 ```cpp
 HRESULT GetKelvinRangeInfo(
-   UINT *pMinKelvinTemp, // [out]
-   UINT *pMaxKelvinTemp, // [out]
+   UINT *pMinKelvinTemp,      // [out]
+   UINT *pMaxKelvinTemp,      // [out]
    UINT *pKelvinTempStepValue // [out]
 );
 ```
@@ -351,8 +351,8 @@ Gets the tone curve of the raw image.
 
 ```cpp
 HRESULT GetToneCurve(
-   UINT            cbToneCurveBufferSize, // [in]
-   WICRawToneCurve *pToneCurve, // [out]
+   UINT            cbToneCurveBufferSize,        // [in]
+   WICRawToneCurve *pToneCurve,                  // [out]
    UINT            *pcbActualToneCurveBufferSize // [out]
 );
 ```
@@ -394,9 +394,9 @@ Gets the white point RGB values.
 
 ```cpp
 HRESULT GetWhitePointRGB(
-   UINT *pRed, // [out]
+   UINT *pRed,   // [out]
    UINT *pGreen, // [out]
-   UINT *pBlue // [out]
+   UINT *pBlue   // [out]
 );
 ```
 
@@ -740,7 +740,7 @@ Sets the tone curve for the raw image.
 ```cpp
 HRESULT SetToneCurve(
    UINT                  cbToneCurveSize, // [in]
-   const WICRawToneCurve *pToneCurve // [in]
+   const WICRawToneCurve *pToneCurve      // [in]
 );
 ```
 
@@ -790,9 +790,9 @@ Sets the white point RGB values.
 
 ```cpp
 HRESULT SetWhitePointRGB(
-   UINT Red, // [in]
+   UINT Red,   // [in]
    UINT Green, // [in]
-   UINT Blue // [in]
+   UINT Blue   // [in]
 );
 ```
 

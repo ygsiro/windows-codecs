@@ -80,8 +80,8 @@ The color array should be sized according to the return results from GetColorCou
 
 ```cpp
 HRESULT GetColors(
-    UINT     cCount, // [in]
-    WICColor *pColors, // [out]
+    UINT     cCount,         // [in]
+    WICColor *pColors,       // [out]
     UINT     *pcActualColors // [out]
 );
 ```

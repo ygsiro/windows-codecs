@@ -113,7 +113,7 @@ Retrieves the component's friendly name, which is a human-readable display name 
 HRESULT GetFriendlyName(
    UINT  cchFriendlyName, // [in]
    WCHAR *wzFriendlyName, // [in, out]
-   UINT  *pcchActual // [out]
+   UINT  *pcchActual      // [out]
 );
 ```
 

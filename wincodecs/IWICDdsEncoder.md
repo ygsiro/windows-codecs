@@ -33,9 +33,9 @@ Creates a new frame to encode.
 ```cpp
 HRESULT CreateNewFrame(
    IWICBitmapFrameEncode **ppIFrameEncode, // [out]
-   UINT                  *pArrayIndex, // [out, optional]
-   UINT                  *pMipLevel, // [out, optional]
-   UINT                  *pSliceIndex // [out, optional]
+   UINT                  *pArrayIndex,     // [out, optional]
+   UINT                  *pMipLevel,       // [out, optional]
+   UINT                  *pSliceIndex      // [out, optional]
 );
 ```
 
