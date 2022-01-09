@@ -16,15 +16,15 @@ code:
 
 Represents a Windows Imaging Component (**WIC**) stream for referencing imaging and metadata content.
 
-- [InitializeFromFilename](#initializefromfilename)
-- [InitializeFromIStream](#initializefromistream)
-- [InitializeFromIStreamRegion](#initializefromistreamregion)
-- [InitializeFromMemory](#initializefrommemory)
-
 ## Inheritance
 
 The **IWICStream** interface inherits from IStream.
 **IWICStream** also has these types of members:
+
+- [InitializeFromFilename](#initializefromfilename)
+- [InitializeFromIStream](#initializefromistream)
+- [InitializeFromIStreamRegion](#initializefromistreamregion)
+- [InitializeFromMemory](#initializefrommemory)
 
 ## Remarks
 
