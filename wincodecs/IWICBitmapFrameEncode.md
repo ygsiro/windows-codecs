@@ -246,7 +246,7 @@ For example, data returned from [IWICBitmapSource][wbs]::[CopyPixels][wbs-cp] is
 The app must handle DPI resolution.
 
 [wbs]: IWICBitmapSource
-[wbs]: IWICBitmapSource#copypixels
+[wbs-cp]: IWICBitmapSource#copypixels
 
 ## SetSize
 
