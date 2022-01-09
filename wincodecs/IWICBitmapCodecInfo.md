@@ -369,14 +369,15 @@ struct formatInfo {
   std::wstring fileExtensions;
   std::vector<GUID> pixelFormats;
   GUID containerFormat = {};
+  CLSID clsID = {};
 };
 
-std::vector<formatInfo> GetFormatInfo(IWICImagingFactory* wic_factory) {
+std::vector<formatInfo> GetDecoderFormatInfo(IWICImagingFactory* wic_factory) {
   winrt::com_ptr<IEnumUnknown> enumUnknown;
   winrt::check_hresult(wic_factory->CreateComponentEnumerator(
     WICDecoder, WICComponentEnumerateDefault, enumUnknown.put()));
   std::vector<formatInfo> fm;
-  for (winrt::com_ptr<::IUnknown> unknown; enumUnknown->Next(1, unknown.put(), nullptr) == S_OK;) {
+  for (winrt::com_ptr<IUnknown> unknown; enumUnknown->Next(1, unknown.put(), nullptr) == S_OK;) {
     winrt::com_ptr<IWICBitmapCodecInfo> codecInfo;
     UINT actual;
     formatInfo tmp;
@@ -391,6 +392,8 @@ std::vector<formatInfo> GetFormatInfo(IWICImagingFactory* wic_factory) {
     winrt::check_hresult(codecInfo->DoesSupportLossless(&tmp.lossless));
 
     winrt::check_hresult(codecInfo->DoesSupportMultiframe(&tmp.multiframe));
+
+    winrt::check_hresult(codecInfo->GetCLSID(&tmp.clsID));
 
     winrt::check_hresult(codecInfo->GetFriendlyName(0, nullptr, &actual));
     tmp.friendlyName.resize(actual);
