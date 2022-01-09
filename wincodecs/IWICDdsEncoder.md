@@ -8,6 +8,9 @@ TOC:
   - name: CreateNewFrame
   - name: GetParameters
   - name: SetParameters
+code:
+  - key: IWICBitmapFrameEncode
+  - key: WICDdsParameters
 ---
 
 Enables writing DDS format specific information to an encoder.
