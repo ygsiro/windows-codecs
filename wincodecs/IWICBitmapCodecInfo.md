@@ -356,3 +356,56 @@ This method can return one of these values.
 **Note:** The Windows provided codecs do not implement this method and return **E_NOTIMPL**.
 
 [wci]: IWICComponentInfo
+
+## Example
+
+```cpp
+struct formatInfo {
+  BOOL animation;
+  BOOL chromakey;
+  BOOL lossless;
+  BOOL multiframe;
+  std::wstring friendlyName;
+  std::wstring fileExtensions;
+  std::vector<GUID> pixelFormats;
+  GUID containerFormat = {};
+};
+
+std::vector<formatInfo> GetFormatInfo(IWICImagingFactory* wic_factory) {
+  winrt::com_ptr<IEnumUnknown> enumUnknown;
+  winrt::check_hresult(wic_factory->CreateComponentEnumerator(
+    WICDecoder, WICComponentEnumerateDefault, enumUnknown.put()));
+  std::vector<formatInfo> fm;
+  for (winrt::com_ptr<::IUnknown> unknown; enumUnknown->Next(1, unknown.put(), nullptr) == S_OK;) {
+    winrt::com_ptr<IWICBitmapCodecInfo> codecInfo;
+    UINT actual;
+    formatInfo tmp;
+    unknown.as(codecInfo);
+    
+    winrt::check_hresult(codecInfo->GetContainerFormat(&tmp.containerFormat));
+    
+    winrt::check_hresult(codecInfo->DoesSupportAnimation(&tmp.animation));
+    
+    winrt::check_hresult(codecInfo->DoesSupportChromakey(&tmp.chromakey));
+    
+    winrt::check_hresult(codecInfo->DoesSupportLossless(&tmp.lossless));
+
+    winrt::check_hresult(codecInfo->DoesSupportMultiframe(&tmp.multiframe));
+
+    winrt::check_hresult(codecInfo->GetFriendlyName(0, nullptr, &actual));
+    tmp.friendlyName.resize(actual);
+    winrt::check_hresult(codecInfo->GetFriendlyName(actual, tmp.friendlyName.data(), &actual));
+
+    winrt::check_hresult(codecInfo->GetFileExtensions(0, nullptr, &actual));
+    tmp.fileExtensions.resize(actual);
+    winrt::check_hresult(codecInfo->GetFileExtensions(actual, tmp.fileExtensions.data(), &actual));
+
+    winrt::check_hresult(codecInfo->GetPixelFormats(0, nullptr, &actual));
+    tmp.pixelFormats.resize(actual);
+    winrt::check_hresult(codecInfo->GetPixelFormats(actual, tmp.pixelFormats.data(), &actual));
+
+    fm.emplace_back(std::move(tmp));
+  }
+  return fm;
+}
+```
