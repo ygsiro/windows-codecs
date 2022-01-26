@@ -1,0 +1,57 @@
+IUnknown
+- IWICBitmapSource
+  - IWICBitmap
+  - IWICBitmapClipper
+  - IWICBitmapFlipRotator
+  - IWICBitmapFrameDecode
+    - IWICDevelopRaw
+  - IWICBitmapFrameEncode
+  - IWICBitmapScaler
+  - IWICBitmapSourceTransform
+  - IWICColorTransform
+  - IWICFormatConverter
+  - IWICPlanarFormatConverter
+- IWICComponentInfo
+  - IWICBitmapCodecInfo
+    - IWICBitmapDecoderInfo
+    - IWICBitmapEncoderInfo
+  - IWICFormatConverterInfo
+  - IWICPixelFormatInfo
+    - IWICPixelFormatInfo2
+  - IWICMetadataHandlerInfo
+    - IWICMetadataReaderInfo
+    - IWICMetadataWriterInfo
+- IWICBitmapCodecProgressNotification
+- IWICBitmapDecoder
+- IWICBitmapEncoder
+- IWICBitmapLock
+- IWICColorContext
+- IWICDdsDecoder
+- IWICDdsEncoder
+- IWICDdsFrameDecode
+- IWICDevelopRawNotificationCallback
+- IWICEnumMetadataItem
+- IWICFastMetadataEncoder
+- IWICImageEncoder
+- IWICImagingFactory
+  - IWICComponentFactory
+  - IWICImagingFactory2
+- IWICJpegFrameDecode
+- IWICJpegFrameEncode
+- IWICMetadataQueryReader
+  - IWICMetadataQueryWriter
+- IWICPalette
+- IWICPlanarBitmapFrameEncode
+- IWICPlanarBitmapSourceTransform
+- IWICProgressCallback
+- ISequentialStream
+  - IStream
+    - IWICStream
+- IWICMetadataBlockReader
+  - IWICMetadataBlockWriter
+- IWICMetadataReader
+  - IWICMetadataWriter
+- IPersist
+  - IPersistStream
+    - IWICPersistStream
+- IWICStreamProvider
